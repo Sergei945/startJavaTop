@@ -35,10 +35,10 @@ class IfElseStatementTheme {
         } else if(firstChar == 'I') {
             System.out.println("Поздравляю ты Игорь, Игнат, Иван или ещё кто-то на И");
         } else {
-            System.out.println("Ты на другие буквы");
+            System.out.println("Ты на другие буквы\n");
         }
 
-        System.out.println("\n2. Поиск max и min числа\n");
+        System.out.println("2. Поиск max и min числа\n");
 
         int num1 = 5;
         int num2 = 8;
@@ -48,10 +48,10 @@ class IfElseStatementTheme {
         } else if(num2 > num1) {
             System.out.println("num2: " + num2 + " больше чем " + "num1: " + num1);
         } else {
-            System.out.println("Числа равны");
+            System.out.println("Числа равны\n\n");
         }
 
-        System.out.println("\n\n3. Проверка числа\n");
+        System.out.println("3. Проверка числа\n");
 
         int checkNum = -5;
 
@@ -69,16 +69,128 @@ class IfElseStatementTheme {
             }
             System.out.println("");
         } else {
-            System.out.println("Число равно 0 поэтому дальше код не идёт\n");
+            System.out.println("Число равно 0 поэтому дальше код не идёт\n\n");
         }
 
-        System.out.println("\n4. Поиск одинаковых цифр в числах\n");
+        System.out.println("4. Поиск одинаковых цифр в числах\n");
 
         num1 = 123; 
-        num2 = 321;
+        num2 = 223;
+        int a1 = num1 / 100; // сотни
+        int b1 = (num1 / 10) % 10; // десятки
+        int c1 = (num1 % 100) % 10; // единицы
+        int a2 = num2 / 100;
+        int b2 = (num2 / 10) % 10;
+        int c2 = (num2 % 100) % 10;
 
-        int numHundreds = num / 100;
-        int numTens = (num / 10) % 10;
-        int numUnits = (num % 100) % 10;
+        System.out.println("i. Исходные числа: " + num1 + " и " + num2 + "\n");
+        System.out.println("i. Исходные числа: " + num1 + " и " + num2 + "\n");
+        if(num1 == num2) {
+            System.out.println("ii. одинаковые в них цифры: " + a1 +", " + b1 + ", " + c1 + "\n" + 
+                    "iii. номера разрядов: " + a1 + " - сотни" + ", " + b1 + 
+                    " - десятки" + ", " + c1 + " - единицы" + "\n");
+        } else if(a1 == a2 && b1 == b2) {
+            System.out.println("ii. одинаковые в них цифры: " + a1 +", " + b1 + "\n" + 
+                    "iii. номера разрядов: " + a1 + " - сотни" + ", " + b1 + " - десятки" + "\n");
+        } else if(c1 == c2 && b1 == b2) {
+            System.out.println("ii. одинаковые в них цифры: " + b1 +", " + c1 + "\n" +
+                    "iii. номера разрядов: " + b1 + " - десятки" + ", " + c1 + " - единицы" + "\n");
+        } else if(c1 == c2 && a1 == a2) {
+            System.out.println("ii. одинаковые в них цифры: " + a1 +", " + c1 + "\n" +
+                    "iii. номера разрядов: " + a1 + " - сотни" + ", " + c1 + " - единицы" + "\n");
+        } else if(a1 == a2) {
+            System.out.println("ii. одинаковые в них цифры: " + a1 + "\n" +
+                    "iii. номера разрядов: " + a1 + " - сотни" + "\n");
+        } else if(b1 == b2) {
+            System.out.println("ii. одинаковые в них цифры: " + b1 + "\n" + 
+                    "iii. номера разрядов: " + b1 + " - десятки" + "\n");
+        } else if(c1 == c2) {
+            System.out.println("ii. одинаковые в них цифры: " + c1 + "\n" +
+                    "iii. номера разрядов: " + c1 + " - единицы" + "\n");
+        } else {
+            System.out.println("ii. Нет одинаковых чисел " + "\n");
+        }
+
+        System.out.println("5. Определение символа по его коду\n");
+
+        char ch = '\u0002';
+        int in = ch;
+        
+        if(in >= 48 && in <= 57) {
+            System.out.println("число\n");
+        } else if(in >= 65 && in <= 90 || in >= 128 && in <= 159 || in == 240) {
+            System.out.println("большая буква\n");
+        } else if(in >= 97 && in <= 122 || in >= 160 && in <= 175 ||
+                 in >= 224 && in <= 239 || in == 241) {
+            System.out.println("маленькая буква\n");
+        } else {
+            System.out.println("не буква и не число\n");
+        }
+        
+        System.out.println("6. Подсчет суммы вклада и начисленных банком %\n");
+
+        float deposit = 299000;
+        float profit = 0;
+        if(deposit < 100000) {
+            profit += (deposit * 0.05) + deposit;
+        } else if(deposit < 300000) {
+            profit += (deposit * 0.07) + deposit;
+        } else {
+            profit += (deposit * 0.10) + deposit;
+        }
+        
+        System.out.println("i. Сумма вклада - " + deposit + "\n" +
+                "ii. Начисленный процент - " + (profit - deposit) + "\n" +
+                "iii. Итоговую сумму с % - " + profit + "\n");
+
+        System.out.println("7. Определение оценки по предметам %\n");
+
+        int history = 59;
+        int programming = 91;
+        int historyGrade = 0;
+        int programmingGrade = 0;
+
+        if(history <= 60 && history >= 0) {
+            historyGrade += 2;
+        } else if(history > 60 && history <= 73) {
+            historyGrade += 3;
+        } else if(history > 73 && history <= 91) {
+            historyGrade += 4;
+        } else if(history > 91 && history <= 100) {
+            historyGrade += 5;
+        }
+        if(programming <= 60 && programming >= 0) {
+            programmingGrade += 2;
+        } else if(programming > 60 && programming <= 73) {
+            programmingGrade += 3;
+        } else if(programming > 73 && programming <= 91) {
+            programmingGrade += 4;
+        } else if(programming > 91 && programming <= 100) {
+            programmingGrade += 5;
+        }
+
+        System.out.println("оценки:\n" + 
+                historyGrade + " - история \n" + 
+                programmingGrade + " - программирование \n" +
+                " средний балл оценок по предметам - " + ((programmingGrade + historyGrade) / 2) +
+                " средний балл % по предметам - " + ((programming + history) / 2) + "\n");
+
+        System.out.println("8. Расчет прибыли за год\n");
+
+        int rentBuilding = 5000;
+        int profitForMonth = 13000;
+        int priceProduct = 9000;
+
+        int profitForYear = (profitForMonth - (rentBuilding + priceProduct)) * 12;
+
+        if(profitForYear < 0) {
+            System.out.println("прибыль за год: " + profitForYear + " руб.\n");
+        } else if(profitForYear > 0) {
+            System.out.println("прибыль за год: " + "+" + profitForYear + "руб.\n");
+        } else {
+            System.out.println("прибыль за год: " + profitForYear + "руб.\n");
+        }
+        
+
     }
 }
