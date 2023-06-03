@@ -190,7 +190,39 @@ class IfElseStatementTheme {
         } else {
             System.out.println("прибыль за год: " + profitForYear + "руб.\n");
         }
-        
+
+        System.out.println("9. Подсчет количества банкнот\n");
+
+        int money = 567;
+
+        int b100 = 10;
+        int b10 = 5;
+        b1 = 50;
+        System.out.println("i. номиналы в наличии: сотни - "  + b100 + ", десятки - " + 
+                b10 + ", единицы - " + b1);
+
+        int countB100 = 0;
+        int countB10 = 0;
+        int countB1 = 0;
+        while(money > 0) {
+            if(b100 != 0 && money > 100) {
+                money -= 100;
+                b100--;
+                countB100++;
+            }else if(b10 != 0 && money > 10) {
+                money -= 10;
+                b10--;
+                countB10++;
+            }else if(b1 != 0 && money > 0) {
+                money -= 1;
+                b1--;
+                countB1++;
+            }
+        }
+        System.out.println(
+                "ii. требуемое их количество: сотни - "  + countB100 + ", десятки - " + 
+                countB10 + ", единицы - " + countB1 + "\n" +
+                "iii. выдаваемая сумма: " + ((countB100 * 100) + (countB10 * 10) + (countB1 * 1)));
 
     }
 }
