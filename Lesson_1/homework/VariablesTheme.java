@@ -44,11 +44,8 @@ class VariablesTheme {
               J  J  aaaaa  V V  aaaaa                                                
                JJ  a     a  V  a     a""" + "\n\n");
 
-        System.out.println("4. Вывод min и max значений целых числовых типов\n\n");
+        System.out.println("4. Вывод min и max значений целых числовых типов\n");
 
-        // Я наверное тупой и не понял. Сперва мы пишем первоначальное по заданию потом значение 
-        // после инкремента как бы ладно 
-        // и значение после декремента, но как бы это тоже самое значение, что и первоначальное
         byte numByte = 127;
         short numShort = 32767;
         int numInt = 2147483647;
@@ -88,17 +85,17 @@ class VariablesTheme {
 
         System.out.println("2. C помощью арифметических операций\n" +
                 "Исходные значения переменных: " + "num1 = " + num1 + " num2 = " + num2);
-        num1 = num1 + num2; 
-        num2 = num1 - num2;
-        num1 = num1 - num2;
+        num1 += num2; 
+        num2 -= num2;
+        num1 -= num2;
         System.out.println("Новые значения переменных: " + "num1 = " + 
                 num1 + " num2 = " + num2 + "\n");
 
         System.out.println("3. с помощью побитовой операции ^\n" +
                "Исходные значения переменных: " + "num1 = " + num1 + " num2 = " + num2);
-        num1 = num1 ^ num2;
-        num2 = num2 ^ num1;
-        num1 = num1 ^ num2; 
+        num1 ^= num2;
+        num2 ^= num1;
+        num1 ^= num2; 
         System.out.println("Новые значения переменных: " + "num1 = " + num1 +
                 " num2 = " + num2 + "\n\n");
 
@@ -128,11 +125,11 @@ class VariablesTheme {
         char5F = '_';
         char char28 = '(';
         char char29 = ')';
-        System.out.println("     " + char5C + char2F + "\n    " +
-                char5C + "  " + char2F + "\n   " + char5C + char5F + char28 + " " +
-                char29 + char2F + "\n  " + char5C + "      " + char2F + "\n " + char5C +
-                char5F + char5F + char5F + char5F + char5C + char2F + char5F +
-                char5F + char2F + "\n\n");
+        System.out.println("     " + char2F + char5C + "\n    " +
+                char2F + "  " + char5C + "\n   " + char2F + char5F + char28 + " " +
+                char29 + char5C + "\n  " + char2F + "      " + char5C + "\n " + char2F +
+                char5F + char5F + char5F + char5F + char2F + char5C + char5F +
+                char5F + char5C + "\n\n");
 
         System.out.println("8. Вывод количества сотен, десятков и единиц числа\n");
         int num = 123; 
