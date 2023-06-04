@@ -133,13 +133,13 @@ class VariablesTheme {
 
         System.out.println("8. Вывод количества сотен, десятков и единиц числа\n");
         int num = 123; 
-        int numHundreds = num / 100;
-        int numTens = (num / 10) % 10;
-        int numOnes = num % 10;
-        System.out.println("Число " + num + " содержит:\n" + numHundreds + " сотен\n" +
-                numTens + " десятков\n" + numOnes + " единиц\n" + "\n" +
-                "Сумма его цифр = " + (numHundreds + numTens + numOnes) + "\n" +
-                "Произведение его цифр = " + (numHundreds * numTens * numOnes) + "\n\n");
+        int digitHundreds = num / 100;
+        int digitTens = (num / 10) % 10;
+        int digitOnes = num % 10;
+        System.out.println("Число " + num + " содержит:\n" + digitHundreds + " сотен\n" +
+                digitTens + " десятков\n" + digitOnes + " единиц\n" + "\n" +
+                "Сумма его цифр = " + (digitHundreds + digitTens + digitOnes) + "\n" +
+                "Произведение его цифр = " + (digitHundreds * digitTens * digitOnes) + "\n\n");
 
         System.out.println("9. Вывод времени\n");
 
