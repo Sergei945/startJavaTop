@@ -132,6 +132,7 @@ class VariablesTheme {
                 char5F + char5C + "\n\n");
 
         System.out.println("8. Вывод количества сотен, десятков и единиц числа\n");
+        
         int num = 123; 
         int digitHundreds = num / 100;
         int digitTens = (num / 10) % 10;
