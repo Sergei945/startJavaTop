@@ -18,12 +18,12 @@ class VariablesTheme {
                     "Количество ядер: " + coreCpu + "\n" +
                     "Тактовая частота: " + ghzCpuNorm + " / Turbo Boost: " + ghzCpuTurbo + "\n" +
                     "Оперативная память: " + memoryRamMb + " Мб или " + memoryRamByte + 
-                    " байт" + "\n" + "Видео карта с " + memoryGpu + " Мб памяти" + "\n\n");
+                    " байт" + "\n" + "Видео карта с " + memoryGpu + " Мб памяти");
         } else {
-            System.out.println("Amd сдох поставил обратно XEON" + "\n\n");
+            System.out.println("Amd сдох поставил обратно XEON");
         }
 
-        System.out.println("2. Расчет стоимости товара со скидкой\n");
+        System.out.println("\n\n2. Расчет стоимости товара со скидкой\n");
 
         int penPrice = 100;
         int bookPrice = 200;
@@ -33,17 +33,17 @@ class VariablesTheme {
         System.out.println("1. Общая стоимость товаров без скидки: " + (sumGoods) + "\n" +
                 "2. Сумма скидки: " + Math.round(discount) + "\n" +
                 "3. Общая стоимость товаров со скидкой: " + 
-                Math.round((sumGoods * (discount / 100) + sumGoods)) + "\n\n");
+                Math.round((sumGoods * (discount / 100) + sumGoods)));
 
-        System.out.println("3. Вывод слова JAVA\n");
+        System.out.println("\n\n3. Вывод слова JAVA\n");
 
         System.out.println("""
                  J    a  v     v  a
                  J   a a  v   v  a a
               J  J  aaaaa  V V  aaaaa
-               JJ  a     a  V  a     a""" + "\n\n");
+               JJ  a     a  V  a     a""");
 
-        System.out.println("4. Вывод min и max значений целых числовых типов\n");
+        System.out.println("\n\n4. Вывод min и max значений целых числовых типов\n");
 
         byte numByte = 127;
         short numShort = 32767;
@@ -64,9 +64,9 @@ class VariablesTheme {
                 "Byte: " + numByte + "\n" +
                 "Short: " + numShort + "\n" +
                 "Int: " + numInt + "\n" +
-                "Long: " + numLong + "\n\n");
+                "Long: " + numLong);
 
-        System.out.println("5. Перестановка значений переменных\n");
+        System.out.println("\n\n5. Перестановка значений переменных\n");
 
         int num1 = 2;
         int num2 = 5;
@@ -91,9 +91,9 @@ class VariablesTheme {
         num2 ^= num1;
         num1 ^= num2; 
         System.out.println("Новые значения переменных: " + "num1 = " + num1 +
-                " num2 = " + num2 + "\n\n");
+                " num2 = " + num2);
 
-        System.out.println("6. Вывод символов и их кодов\n");
+        System.out.println("\n\n6. Вывод символов и их кодов\n");
 
         char pound = '#';
         char ampersand = '&';
@@ -110,9 +110,9 @@ class VariablesTheme {
                 "Код символа " + (int) circumflexAccent + 
                 " соответствующий коду символ из ASCII-таблицы " + circumflexAccent + "\n" +
                 "Код символа " + (int) lowLine + 
-                " соответствующий коду символ из ASCII-таблицы " + lowLine + "\n\n");
+                " соответствующий коду символ из ASCII-таблицы " + lowLine);
 
-        System.out.println("7. Вывод в консоль ASCII-арт Дюка\n");
+        System.out.println("\n\n7. Вывод в консоль ASCII-арт Дюка\n");
 
         char slash = '/';
         char backslash = '\\';
@@ -125,9 +125,9 @@ class VariablesTheme {
                 rightParenthesis + backslash + "\n  " + slash + "      " + 
                 backslash + "\n " + slash + lowLine + lowLine + lowLine + 
                 lowLine + slash + backslash + 
-                lowLine + lowLine + backslash + "\n\n");
+                lowLine + lowLine + backslash);
 
-        System.out.println("8. Вывод количества сотен, десятков и единиц числа\n");
+        System.out.println("\n\n8. Вывод количества сотен, десятков и единиц числа\n");
         
         int num = 123; 
         int hundreds = num / 100;
@@ -137,9 +137,9 @@ class VariablesTheme {
         System.out.println("Число " + num + " содержит:\n" + hundreds + " сотен\n" +
                 tens + " десятков\n" + ones + " единиц\n" +
                 "Сумма его цифр = " + (hundreds + tens + ones) + "\n" +
-                "Произведение его цифр = " + (hundreds * tens * ones) + "\n\n");
+                "Произведение его цифр = " + (hundreds * tens * ones));
 
-        System.out.println("9. Вывод времени\n");
+        System.out.println("\n\n9. Вывод времени\n");
 
         int allSeconds = 86399;
         int minutes = (allSeconds / 60) % 60;
