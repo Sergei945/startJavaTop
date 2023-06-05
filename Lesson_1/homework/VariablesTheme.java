@@ -28,20 +28,19 @@ class VariablesTheme {
         int penPrice = 100;
         int bookPrice = 200;
         double discount = 11;
-        int sumPenBook = penPrice + bookPrice;
-        System.out.println("1. Общая стоимость товаров без скидки: " + 
-                (sumPenBook) + "\n" + 
+        int sumGoods = penPrice + bookPrice;
+
+        System.out.println("1. Общая стоимость товаров без скидки: " + (sumGoods) + "\n" +
                 "2. Сумма скидки: " + Math.round(discount) + "\n" +
                 "3. Общая стоимость товаров со скидкой: " + 
-                Math.round((sumPenBook * (discount / 100) + 
-                sumPenBook)) + "\n\n");
+                Math.round((sumGoods * (discount / 100) + sumGoods)) + "\n\n");
 
         System.out.println("3. Вывод слова JAVA\n");
 
         System.out.println("""
-                 J    a  v     v  a                                                  
-                 J   a a  v   v  a a                                                 
-              J  J  aaaaa  V V  aaaaa                                                
+                 J    a  v     v  a
+                 J   a a  v   v  a a
+              J  J  aaaaa  V V  aaaaa
                JJ  a     a  V  a     a""" + "\n\n");
 
         System.out.println("4. Вывод min и max значений целых числовых типов\n");
@@ -55,14 +54,12 @@ class VariablesTheme {
                 "Byte: " + numByte++ + "\n" +
                 "Short: " + numShort++ + "\n" +
                 "Int: " + numInt++ + "\n" +
-                "Long: " + numLong++ + "\n\n");
-
+                "Long: " + numLong++);
         System.out.println("2. значение после инкремента на единицу:\n" +
                 "Byte: " + numByte-- + "\n" +
                 "Short: " + numShort-- + "\n" +
                 "Int: " + numInt-- + "\n" +
-                "Long: " + numLong-- + "\n\n");
-
+                "Long: " + numLong--);
         System.out.println("3. значение после декремента на единицу:\n" +
                 "Byte: " + numByte + "\n" +
                 "Short: " + numShort + "\n" +
@@ -73,24 +70,21 @@ class VariablesTheme {
 
         int num1 = 2;
         int num2 = 5;
-        
+        int tmp = num1;
+
         System.out.println("1. C помощью третьей переменной\n" +
                "Исходные значения переменных: " + "num1 = " + num1 + " num2 = " + num2);
-        int tmp = 0;
-        tmp = num1; 
         num1 = num2; 
         num2 = tmp;
         System.out.println("Новые значения переменных: " + "num1 = " + 
-                num1 + " num2 = " + num2  + "\n");
-
+                num1 + " num2 = " + num2);
         System.out.println("2. C помощью арифметических операций\n" +
                 "Исходные значения переменных: " + "num1 = " + num1 + " num2 = " + num2);
-        num1 += num2; 
-        num2 -= num2;
+        num1 += num2;
+        num2 = num1 - num2;
         num1 -= num2;
         System.out.println("Новые значения переменных: " + "num1 = " + 
-                num1 + " num2 = " + num2 + "\n");
-
+                num1 + " num2 = " + num2);
         System.out.println("3. с помощью побитовой операции ^\n" +
                "Исходные значения переменных: " + "num1 = " + num1 + " num2 = " + num2);
         num1 ^= num2;
@@ -101,46 +95,49 @@ class VariablesTheme {
 
         System.out.println("6. Вывод символов и их кодов\n");
 
-        char char23 = 35;
-        char char26 = 38;
-        char char40 = 64;
-        char char5E = 94;
-        char char5F = 95;
+        char charPound = 35;
+        char charAmpersand = 38;
+        char charCommercialAtSign = 64;
+        char charCircumflexAccent  = 94;
+        char charLowLine = 95;
         
-        System.out.println("Код символа " + (int)char23 + 
-                " соответствующий коду символ из ASCII-таблицы " + char23 + "\n" +
-                "Код символа " + (int)char26 + 
-                " соответствующий коду символ из ASCII-таблицы " + char26 + "\n" +
-                "Код символа " + (int)char40 + 
-                " соответствующий коду символ из ASCII-таблицы " + char40 + "\n" +
-                "Код символа " + (int)char5E + 
-                " соответствующий коду символ из ASCII-таблицы " + char5E + "\n" +
-                "Код символа " + (int)char5F + 
-                " соответствующий коду символ из ASCII-таблицы " + char5F + "\n\n");
+        System.out.println("Код символа " + (int) charPound + 
+                " соответствующий коду символ из ASCII-таблицы " + charPound + "\n" +
+                "Код символа " + (int) charAmpersand + 
+                " соответствующий коду символ из ASCII-таблицы " + charAmpersand + "\n" +
+                "Код символа " + (int) charCommercialAtSign + 
+                " соответствующий коду символ из ASCII-таблицы " + charCommercialAtSign + "\n" +
+                "Код символа " + (int) charCircumflexAccent + 
+                " соответствующий коду символ из ASCII-таблицы " + charCircumflexAccent + "\n" +
+                "Код символа " + (int) charLowLine + 
+                " соответствующий коду символ из ASCII-таблицы " + charLowLine + "\n\n");
 
         System.out.println("7. Вывод в консоль ASCII-арт Дюка\n");
 
-        char char2F = '/';
-        char char5C = 92;
-        char5F = '_';
-        char char28 = '(';
-        char char29 = ')';
-        System.out.println("     " + char2F + char5C + "\n    " +
-                char2F + "  " + char5C + "\n   " + char2F + char5F + char28 + " " +
-                char29 + char5C + "\n  " + char2F + "      " + char5C + "\n " + char2F +
-                char5F + char5F + char5F + char5F + char2F + char5C + char5F +
-                char5F + char5C + "\n\n");
+        char charSlash = '/';
+        char charBackslash = '\\';
+        charLowLine = '_';
+        char charLeftParenthesis = '(';
+        char charRightParenthesis = ')';
+
+        System.out.println("     " + charSlash + charBackslash + "\n    " + charSlash + "  " + 
+                charBackslash + "\n   " + charSlash + charLowLine + charLeftParenthesis + " " +
+                charRightParenthesis + charBackslash + "\n  " + charSlash + "      " + 
+                charBackslash + "\n " + charSlash + charLowLine + charLowLine + charLowLine + 
+                charLowLine + charSlash + charBackslash + 
+                charLowLine + charLowLine + charBackslash + "\n\n");
 
         System.out.println("8. Вывод количества сотен, десятков и единиц числа\n");
         
         int num = 123; 
-        int digitHundreds = num / 100;
-        int digitTens = (num / 10) % 10;
-        int digitOnes = num % 10;
-        System.out.println("Число " + num + " содержит:\n" + digitHundreds + " сотен\n" +
-                digitTens + " десятков\n" + digitOnes + " единиц\n" + "\n" +
-                "Сумма его цифр = " + (digitHundreds + digitTens + digitOnes) + "\n" +
-                "Произведение его цифр = " + (digitHundreds * digitTens * digitOnes) + "\n\n");
+        int hundreds = num / 100;
+        int tens = (num / 10) % 10;
+        int ones = num % 10;
+        
+        System.out.println("Число " + num + " содержит:\n" + hundreds + " сотен\n" +
+                tens + " десятков\n" + ones + " единиц\n" +
+                "Сумма его цифр = " + (hundreds + tens + ones) + "\n" +
+                "Произведение его цифр = " + (hundreds * tens * ones) + "\n\n");
 
         System.out.println("9. Вывод времени\n");
 
