@@ -95,37 +95,37 @@ class VariablesTheme {
 
         System.out.println("6. Вывод символов и их кодов\n");
 
-        char charPound = 35;
-        char charAmpersand = 38;
-        char charCommercialAtSign = 64;
-        char charCircumflexAccent  = 94;
-        char charLowLine = 95;
+        char pound = '#';
+        char ampersand = '&';
+        char commercialAtSign = '@';
+        char circumflexAccent  = '^';
+        char lowLine = '_';
         
-        System.out.println("Код символа " + (int) charPound + 
-                " соответствующий коду символ из ASCII-таблицы " + charPound + "\n" +
-                "Код символа " + (int) charAmpersand + 
-                " соответствующий коду символ из ASCII-таблицы " + charAmpersand + "\n" +
-                "Код символа " + (int) charCommercialAtSign + 
-                " соответствующий коду символ из ASCII-таблицы " + charCommercialAtSign + "\n" +
-                "Код символа " + (int) charCircumflexAccent + 
-                " соответствующий коду символ из ASCII-таблицы " + charCircumflexAccent + "\n" +
-                "Код символа " + (int) charLowLine + 
-                " соответствующий коду символ из ASCII-таблицы " + charLowLine + "\n\n");
+        System.out.println("Код символа " + (int) pound + 
+                " соответствующий коду символ из ASCII-таблицы " + pound + "\n" +
+                "Код символа " + (int) ampersand + 
+                " соответствующий коду символ из ASCII-таблицы " + ampersand + "\n" +
+                "Код символа " + (int) commercialAtSign + 
+                " соответствующий коду символ из ASCII-таблицы " + commercialAtSign + "\n" +
+                "Код символа " + (int) circumflexAccent + 
+                " соответствующий коду символ из ASCII-таблицы " + circumflexAccent + "\n" +
+                "Код символа " + (int) lowLine + 
+                " соответствующий коду символ из ASCII-таблицы " + lowLine + "\n\n");
 
         System.out.println("7. Вывод в консоль ASCII-арт Дюка\n");
 
-        char charSlash = '/';
-        char charBackslash = '\\';
-        charLowLine = '_';
-        char charLeftParenthesis = '(';
-        char charRightParenthesis = ')';
+        char slash = '/';
+        char backslash = '\\';
+        lowLine = '_';
+        char leftParenthesis = '(';
+        char rightParenthesis = ')';
 
-        System.out.println("     " + charSlash + charBackslash + "\n    " + charSlash + "  " + 
-                charBackslash + "\n   " + charSlash + charLowLine + charLeftParenthesis + " " +
-                charRightParenthesis + charBackslash + "\n  " + charSlash + "      " + 
-                charBackslash + "\n " + charSlash + charLowLine + charLowLine + charLowLine + 
-                charLowLine + charSlash + charBackslash + 
-                charLowLine + charLowLine + charBackslash + "\n\n");
+        System.out.println("     " + slash + backslash + "\n    " + slash + "  " + 
+                backslash + "\n   " + slash + lowLine + leftParenthesis + " " +
+                rightParenthesis + backslash + "\n  " + slash + "      " + 
+                backslash + "\n " + slash + lowLine + lowLine + lowLine + 
+                lowLine + slash + backslash + 
+                lowLine + lowLine + backslash + "\n\n");
 
         System.out.println("8. Вывод количества сотен, десятков и единиц числа\n");
         
@@ -133,7 +133,7 @@ class VariablesTheme {
         int hundreds = num / 100;
         int tens = (num / 10) % 10;
         int ones = num % 10;
-        
+
         System.out.println("Число " + num + " содержит:\n" + hundreds + " сотен\n" +
                 tens + " десятков\n" + ones + " единиц\n" +
                 "Сумма его цифр = " + (hundreds + tens + ones) + "\n" +
@@ -143,7 +143,7 @@ class VariablesTheme {
 
         int allSeconds = 86399;
         int minutes = (allSeconds / 60) % 60;
-        int hourses = ((allSeconds / 60) / 60);
+        int hourses = (allSeconds / 60 / 60);
         int seconds = allSeconds % 60;
 
         System.out.println(hourses + ":" + minutes + ":" + seconds);
