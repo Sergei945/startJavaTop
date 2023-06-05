@@ -171,34 +171,58 @@ class IfElseStatementTheme {
         System.out.println("\n\n9. Подсчет количества банкнот\n");
 
         int money = 567;
-        int b100 = 10;
-        int b10 = 5;
-        int b1 = 50;
-        int countB100 = 0;
-        int countB10 = 0;
-        int countB1 = 0;
 
-        System.out.println("i. номиналы в наличии: сотни - "  + b100 + ", десятки - " + 
-                b10 + ", единицы - " + b1);
-        while(money > 0) {
-            if(b100 != 0 && money > 100) {
-                money -= 100;
-                b100--;
-                countB100++;
-            }else if(b10 != 0 && money > 10) {
-                money -= 10;
-                b10--;
-                countB10++;
-            }else if(b1 != 0 && money > 0) {
-                money -= 1;
-                b1--;
-                countB1++;
+        int hundreds = money / 100;
+        int tens = (money / 10) % 10;
+        int ones = money % 10;
+
+        int inCash100 = 10;
+        int inCash10 = 5;
+        int inCash1 = 50;
+
+        int outCash100 = 0;
+        int outCash10 = 0;
+        int outCash1 = 0;
+
+        if(hundreds <= inCash100 && tens * 10 + ones <= inCash10 * 10 + inCash1 && ones <= inCash1) {
+            if(inCash100 > hundreds) {
+                outCash100 += hundreds;
+                inCash100 -= hundreds;
+                hundreds = 0;
+            } else {
+                outCash100 += inCash100;
+                hundreds -= inCash100;
+                inCash100 = 0;
             }
-        }
-        System.out.println(
-                "ii. требуемое их количество: сотни - "  + countB100 + ", десятки - " + 
-                countB10 + ", единицы - " + countB1 + "\n" +
-                "iii. выдаваемая сумма: " + ((countB100 * 100) + (countB10 * 10) + (countB1 * 1)));
+            tens += hundreds * 10;
+            if(inCash10 > tens) {
+                outCash10 += tens;
+                inCash10 -= tens;
+                tens = 0;
+            } else {
+                outCash10 += inCash10;
+                tens -= inCash10;
+                inCash10 = 0;
+            }
+            ones += tens * 10;
 
+            if(inCash1 > ones) {
+                outCash1 += ones;
+                inCash1 -= ones;
+                ones = 0;
+            } else {
+                outCash1 += inCash1;
+                ones -= inCash1;
+                inCash1 = 0;
+            }
+            System.out.println("i. номиналы в наличии: сотни - "  + inCash100 +
+                ", десятки - " + inCash10 + " , единицы - " + inCash1);
+            System.out.println("ii. Требуемое их количество - "  + outCash100 + ", десятки - " + outCash10 + 
+                " , единицы - " + outCash1 + "\n" + 
+                "iii. выдаваемая сумма: " + ((outCash100 * 100) + (outCash10 * 10) + (outCash1 * 1)));
+        } else {
+            System.out.println("Недостаточно средств");
+        }
+        
     }
 }
