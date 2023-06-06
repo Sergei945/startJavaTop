@@ -9,18 +9,21 @@ class IfElseStatementTheme {
         } else {
             System.out.println("Тебе ещё " + age + " можешь погулять.");
         }
+
         boolean maleGender = true;
         if(!maleGender) {
             System.out.println("Ты женщина.");
         } else {
             System.out.println("Ты мужчина.");
         }
+
         float height = 1.5f;
         if(height < 1.80) {
             System.out.println("У тебя обычный рост.");
         } else {
             System.out.println("Ты великан.");
         }
+
         char firstCharName = "Max".charAt(0);
         if(firstCharName == 'M') {
             System.out.println("Поздравляю ты Миша, Макс, Матвей или ещё кто-то на М");
@@ -110,7 +113,6 @@ class IfElseStatementTheme {
         } else if (deposit > 300000){
             profit += (deposit * 0.10) + deposit;
         }
-        
         System.out.println("i. Сумма вклада - " + deposit + "\n" +
                 "ii. Начисленный процент - " + (profit - deposit) + "\n" +
                 "iii. Итоговую сумму с % - " + profit);
@@ -191,7 +193,6 @@ class IfElseStatementTheme {
                 inCash10 = 0;
             }
             ones += tens * 10;
-
             if(inCash1 > ones) {
                 outCash1 += ones;
                 inCash1 -= ones;

@@ -18,10 +18,6 @@ class CyclesTheme {
             num1++;
         } while(num1 <= num2);
 
-            
-        
-
-
         System.out.println("в промежутке ["+ num1 + ", " + num2 + "] сумма четных чисел = " + 
                 countEven + ", а нечетных = " + countOdd + "\n");
 
@@ -68,7 +64,5 @@ class CyclesTheme {
             count--;
         }
         System.out.println("сумма его цифр - " + sum + "\n");
-
-
     }
 }
