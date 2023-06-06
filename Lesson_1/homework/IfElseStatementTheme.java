@@ -106,12 +106,12 @@ class IfElseStatementTheme {
         
         System.out.println("\n\n6. Подсчет суммы вклада и начисленных банком %\n");
 
-        float deposit = 300000f;
+        float deposit = 400000;
         float profit = (float) ((deposit * 0.05) + deposit);
         if(deposit <= 300000 && deposit >= 100000) {
-            profit += (deposit * 0.07) + deposit;
+            profit = (float) (deposit * 0.07) + deposit;
         } else if (deposit > 300000){
-            profit += (deposit * 0.10) + deposit;
+            profit = (float) (deposit * 0.10) + deposit;
         }
         System.out.println("i. Сумма вклада - " + deposit + "\n" +
                 "ii. Начисленный процент - " + (profit - deposit) + "\n" +
@@ -119,34 +119,34 @@ class IfElseStatementTheme {
 
         System.out.println("\n\n7. Определение оценки по предметам %\n");
 
-        int historyGradePercent = 59;
-        int programmingGradePercent = 91;
-        int historyGradeDigit = 0;
-        int programmingGradeDigit = 0;
-        if(historyGradePercent <= 60 && historyGradePercent >= 0) {
-            historyGradeDigit = 2;
-        } else if(historyGradePercent > 60 && historyGradePercent <= 73) {
-            historyGradeDigit = 3;
-        } else if(historyGradePercent > 73 && historyGradePercent <= 91) {
-            historyGradeDigit = 4;
-        } else if(historyGradePercent > 91 && historyGradePercent <= 100) {
-            historyGradeDigit = 5;
+        int historyPercent = 59;
+        int programmingPercent = 91;
+        int historyGrade = 0;
+        int programmingGrade = 0;
+        if(historyPercent <= 60 && historyPercent >= 0) {
+            historyGrade = 2;
+        } else if(historyPercent > 60 && historyPercent <= 73) {
+            historyGrade = 3;
+        } else if(historyPercent > 73 && historyPercent <= 91) {
+            historyGrade = 4;
+        } else if(historyPercent > 91 && historyPercent <= 100) {
+            historyGrade = 5;
         }
-        if(programmingGradePercent <= 60 && programmingGradePercent >= 0) {
-            programmingGradeDigit = 2;
-        } else if(programmingGradePercent > 60 && programmingGradePercent <= 73) {
-            programmingGradeDigit = 3;
-        } else if(programmingGradePercent > 73 && programmingGradePercent <= 91) {
-            programmingGradeDigit = 4;
-        } else if(programmingGradePercent > 91 && programmingGradePercent <= 100) {
-            programmingGradeDigit = 5;
+        if(programmingPercent <= 60 && programmingPercent >= 0) {
+            programmingGrade = 2;
+        } else if(programmingPercent > 60 && programmingPercent <= 73) {
+            programmingGrade = 3;
+        } else if(programmingPercent > 73 && programmingPercent <= 91) {
+            programmingGrade = 4;
+        } else if(programmingPercent > 91 && programmingPercent <= 100) {
+            programmingGrade = 5;
         }
-        System.out.println("оценки:\n" + historyGradeDigit + " - история \n" + 
-                programmingGradeDigit + " - программирование \n" +
+        System.out.println("оценки:\n" + historyGrade + " - история \n" + 
+                programmingGrade + " - программирование \n" +
                 " средний балл оценок по предметам - " + 
-                ((programmingGradeDigit + historyGradeDigit) / 2) +
+                ((programmingGrade + historyGrade) / 2) +
                 " средний балл % по предметам - " + 
-                ((programmingGradePercent + historyGradePercent) / 2));
+                ((programmingPercent + historyPercent) / 2));
 
         System.out.println("\n\n8. Расчет прибыли за год\n");
 
@@ -154,11 +154,11 @@ class IfElseStatementTheme {
         int profitForMonth = 10000;
         int priceProduct = 9000;
         int profitForYear = (profitForMonth - (rentBuilding + priceProduct)) * 12;
-        if(profitForYear <= 0) {
-            System.out.println("прибыль за год: " + profitForYear + " руб.");
-        } else if(profitForYear > 0) {
+        if(profitForYear > 0) {
             System.out.println("прибыль за год: " + "+" + profitForYear + "руб.");
-        } 
+        } else {
+            System.out.println("прибыль за год: " + profitForYear + " руб.");
+        }
 
         System.out.println("\n\n9. Подсчет количества банкнот\n");
 
@@ -172,7 +172,8 @@ class IfElseStatementTheme {
         int outCash100 = 0;
         int outCash10 = 0;
         int outCash1 = 0;
-        if(hundreds <= inCash100 && tens * 10 + ones <= inCash10 * 10 + inCash1 && ones <= inCash1) {
+        if(hundreds <= inCash100 && tens * 10 + ones <= inCash10 * 10 + 
+                inCash1 && ones <= inCash1) {
             if(inCash100 > hundreds) {
                 outCash100 += hundreds;
                 inCash100 -= hundreds;
@@ -204,9 +205,10 @@ class IfElseStatementTheme {
             }
             System.out.println("i. номиналы в наличии: сотни - "  + inCash100 +
                 ", десятки - " + inCash10 + " , единицы - " + inCash1);
-            System.out.println("ii. Требуемое их количество - "  + outCash100 + ", десятки - " + outCash10 + 
-                " , единицы - " + outCash1 + "\n" + 
-                "iii. выдаваемая сумма: " + ((outCash100 * 100) + (outCash10 * 10) + (outCash1 * 1)));
+            System.out.println("ii. Требуемое их количество - "  + 
+                    outCash100 + ", десятки - " + outCash10 + " , единицы - " + outCash1 + "\n" + 
+                    "iii. выдаваемая сумма: " + 
+                    ((outCash100 * 100) + (outCash10 * 10) + (outCash1 * 1)));
         } else {
             System.out.println("Недостаточно средств");
         }
