@@ -7,7 +7,6 @@ class CyclesTheme {
         int num2 = 21;
         int countEven = 0;
         int countOdd = 0;
-
         do {
             if(num1 % 2 == 0) {
                 countEven++; 
@@ -17,9 +16,9 @@ class CyclesTheme {
             num1++;
         } while(num1 <= num2);
         System.out.println("в промежутке ["+ num1 + ", " + num2 + "] сумма четных чисел = " + 
-                countEven + ", а нечетных = " + countOdd + "\n");
+                countEven + ", а нечетных = " + countOdd);
 
-        System.out.println("2. Вывод чисел в интервале (min и max) в порядке убывания\n");
+        System.out.println("\n\n2. Вывод чисел в интервале (min и max) в порядке убывания\n");
 
         num1 = 10;
         num2 = 5;
@@ -46,7 +45,7 @@ class CyclesTheme {
         }
         System.out.println(interval);
 
-        System.out.println("3. Вывод реверсивного числа и суммы его цифр\n");
+        System.out.println("\n\n3. Вывод реверсивного числа и суммы его цифр\n");
 
         num1 = 1234;
         String strNum = num1 + "";
@@ -60,14 +59,13 @@ class CyclesTheme {
             sum += i;
             count--;
         }
-        System.out.println("сумма его цифр - " + sum + "\n");
+        System.out.println("сумма его цифр - " + sum);
 
-        System.out.println("4. Вывод чисел на консоль в несколько строк\n");
+        System.out.println("\n\n4. Вывод чисел на консоль в несколько строк\n");
 
         num1 = 1;
         num2 = 30;
         count = 1;
-
         for (int i = num1; i < num2 - 1; i += 2) {
             int length = (int) (Math.log10(i) + 1);
             System.out.printf("%3d", i);
@@ -85,5 +83,21 @@ class CyclesTheme {
         } else if(((num2 - 1) / 2 % 5) == 1) {
             System.out.printf("%3d%3d%3d%3d", 0, 0, 0, 0);
         }
+
+        System.out.println("\n\n\n5. Проверка количества двоек на четность/нечетность\n");
+
+        int num = 3242592;
+        System.out.print("число " + num);
+        int countDigitTwo = 0;
+        while(num > 0) {
+            int digit = num % 10;
+            if(digit == 2) {
+                countDigitTwo += 1;
+            }
+            num /= 10;
+        }
+        System.out.print(" содержит " + countDigitTwo +
+            ((countDigitTwo % 2 == 0) ? " четных" : " нечетных")  + " двоек");
+        System.out.println("\n\n\n6. Отображение фигур в консоли\n");
     }
 }
