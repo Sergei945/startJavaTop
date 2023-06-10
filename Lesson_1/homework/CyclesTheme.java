@@ -194,5 +194,29 @@ class CyclesTheme {
         System.out.println("Сумма первых 3 цифр - " + sumLeft + "\n" +
                 "Сумма последних 3 цифр - " + sumRight + "\n" + 
                 ((sumRight == sumLeft) ? "Числа равны число счастливое" : "Число не счастливое"));
+        System.out.println("\n\n10. Вывод таблицы умножения Пифагора\n");
+
+System.out.println("                ТАБЛИЦА ПИФАГОРА\n");
+        for (i = 1; i < 11;i++) {
+
+            for (int j = 1;j < 11;j++) {
+            if(i == 1 && j == 1) {
+                System.out.printf("%4s", " ");
+            } else {
+                System.out.printf("%4d", i * j);
+            }
+            if(j == 1) {
+                System.out.printf("%3s", "|");
+            }
+            }
+
+        System.out.println("");
+        if(i == 1) {
+            for (int k = 1;k < 11;k++) {
+                System.out.printf("%4s", "_____");
+            }
+            System.out.println("");
+        }
+        }
     }
 }
