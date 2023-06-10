@@ -124,7 +124,7 @@ class CyclesTheme {
             i--;
         }
         System.out.println();
-        
+
         char dollarSign = '$';
         i = 1;
         int lines = 5;
@@ -145,5 +145,54 @@ class CyclesTheme {
             System.out.println();
         } while(i <= lines);
 
+        System.out.println("\n\n7. Отображение ASCII-символов\n");
+
+        System.out.println("i. символы, идущие до цифр и имеющие нечетные коды\n");
+        System.out.println("DECIMAL  |  CHARACTER");
+        for (i = 1;i < (int) '0';i += 2) {
+            char symbol = (char) i;
+                System.out.printf("%3d%13s%n", (int) symbol, symbol);
+        }
+
+        System.out.println("\nii. маленькие английские буквы, имеющие четные коды\n");
+        System.out.println("DECIMAL  |  CHARACTER");
+        for (i = (int) 'b';i <= (int) 'z';i += 2) {
+            char symbol = (char) i;
+            System.out.printf("%4d%13s%n", (int) symbol, symbol);
+        }
+
+        System.out.println("\n\n8. Проверка, является ли число палиндромом\n");
+
+        num = 1234321;
+        boolean isPalindrom = true;
+        length = (int) (Math.log10(num) + 1);
+        for (i = 0; i < (length / 2); i++) {
+            if(Integer.toString(num).charAt(i) != Integer.toString(num).charAt(length - i - 1)) {
+                System.out.println("Число не палиндром");
+                isPalindrom = false;
+            }
+        }
+        System.out.println((isPalindrom)
+                ? "Число " + num + " палиндром" : "Число " + num + " не палиндром");
+
+        System.out.println("\n\n9. Определение, является ли число счастливым\n");
+
+        num = 123555321;
+        int sumLeft = 0;
+        int sumRight = 0;
+        length = (int) (Math.log10(num) + 1);
+        System.out.println("Определяем счастливое ли число - " + num);
+        for (i = length; i >= 1; i--) {
+            int digit = num % 10;
+            if(i > 0 && i < 4) {
+                sumLeft += digit;
+            } else if(i <= length && i > length - 3) {
+                sumRight += digit;
+            }
+            num /= 10;
+        }
+        System.out.println("Сумма первых 3 цифр - " + sumLeft + "\n" +
+                "Сумма последних 3 цифр - " + sumRight + "\n" + 
+                ((sumRight == sumLeft) ? "Числа равны число счастливое" : "Число не счастливое"));
     }
 }
