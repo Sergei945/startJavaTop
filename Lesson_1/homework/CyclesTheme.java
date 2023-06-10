@@ -51,7 +51,6 @@ class CyclesTheme {
         String strNum = num1 + "";
         int count = strNum.length() - 1;
         int sum = 0;
-
         System.out.println("Число в обратном порядке:");
         while(count >= 0) {
             int i = Character.getNumericValue(strNum.charAt(count));
@@ -151,9 +150,8 @@ class CyclesTheme {
         System.out.println("DECIMAL  |  CHARACTER");
         for (i = 1;i < (int) '0';i += 2) {
             char symbol = (char) i;
-                System.out.printf("%3d%13s%n", (int) symbol, symbol);
+            System.out.printf("%3d%13s%n", (int) symbol, symbol);
         }
-
         System.out.println("\nii. маленькие английские буквы, имеющие четные коды\n");
         System.out.println("DECIMAL  |  CHARACTER");
         for (i = (int) 'b';i <= (int) 'z';i += 2) {
@@ -209,7 +207,6 @@ System.out.println("                ТАБЛИЦА ПИФАГОРА\n");
                 System.out.printf("%3s", "|");
             }
             }
-
         System.out.println("");
         if(i == 1) {
             for (int k = 1;k < 11;k++) {
