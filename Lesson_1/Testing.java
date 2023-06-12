@@ -1,5 +1,9 @@
 class Testing {
     public static void main(String[] args) {
-        System.out.println("Hello blya");
+       int num = 1234321;
+
+       boolean isPalindrom = true;
+
+    System.out.println(isPalindrom);
     }
 }
