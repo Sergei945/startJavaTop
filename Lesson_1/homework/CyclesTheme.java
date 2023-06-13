@@ -127,13 +127,13 @@ class CyclesTheme {
 
         System.out.println("i. символы, идущие до цифр и имеющие нечетные коды\n");
         System.out.println("DECIMAL  |  CHARACTER");
-        for (int i = 1; i < '0'; i += 2) {
-            System.out.printf("%3d%13s%n", (int) i, (char) i);
+        for (char ch = 1; ch < '0'; ch += 2) {
+            System.out.printf("%3d%13s%n", (int) ch, (char) ch);
         }
         System.out.println("\nii. маленькие английские буквы, имеющие четные коды\n");
         System.out.println("DECIMAL  |  CHARACTER");
-        for (int i = 'b'; i <= 'z'; i += 2) {
-            System.out.printf("%4d%13s%n", (int) i, (char) i);
+        for (char ch = 'b'; ch <= 'z'; ch += 2) {
+            System.out.printf("%4d%13s%n", (int) ch, (char) ch);
         }
 
         System.out.println("\n\n8. Проверка, является ли число палиндромом\n");
