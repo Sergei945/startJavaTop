@@ -89,7 +89,7 @@ class VariablesTheme {
                "Исходные значения переменных: " + "num1 = " + num1 + " num2 = " + num2);
         num1 ^= num2;
         num2 ^= num1;
-        num1 ^= num2; 
+        num1 ^= num2;
         System.out.println("Новые значения переменных: " + "num1 = " + num1 +
                 " num2 = " + num2);
 
@@ -101,9 +101,9 @@ class VariablesTheme {
         char circumflexAccent  = '^';
         char lowLine = '_';
         
-        System.out.println("Код символа " + (int) pound + 
+        System.out.println("Код символа " + (int) pound +
                 " соответствующий коду символ из ASCII-таблицы " + pound + "\n" +
-                "Код символа " + (int) ampersand + 
+                "Код символа " + (int) ampersand +
                 " соответствующий коду символ из ASCII-таблицы " + ampersand + "\n" +
                 "Код символа " + (int) commercialAtSign + 
                 " соответствующий коду символ из ASCII-таблицы " + commercialAtSign + "\n" +
@@ -120,11 +120,11 @@ class VariablesTheme {
         char leftParenthesis = '(';
         char rightParenthesis = ')';
 
-        System.out.println("     " + slash + backslash + "\n    " + slash + "  " + 
+        System.out.println("     " + slash + backslash + "\n    " + slash + "  " +
                 backslash + "\n   " + slash + lowLine + leftParenthesis + " " +
-                rightParenthesis + backslash + "\n  " + slash + "      " + 
-                backslash + "\n " + slash + lowLine + lowLine + lowLine + 
-                lowLine + slash + backslash + 
+                rightParenthesis + backslash + "\n  " + slash + "      " +
+                backslash + "\n " + slash + lowLine + lowLine + lowLine +
+                lowLine + slash + backslash +
                 lowLine + lowLine + backslash);
 
         System.out.println("\n\n8. Вывод количества сотен, десятков и единиц числа\n");

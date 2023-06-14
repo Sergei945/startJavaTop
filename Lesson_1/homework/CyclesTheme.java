@@ -58,20 +58,20 @@ class CyclesTheme {
         }
         if(count % 5 != 0) {
             for (int i = 0; i < (5 - (count % 5)); i++) {
-            System.out.printf("%" + length + "d", 0);
+                System.out.printf("%" + length + "d", 0);
             }
         }
 
         System.out.println("\n\n5. Проверка количества двоек на четность/нечетность\n");
 
         num = 3242592;
-        int result = num; 
+        int copyNum = num; 
         int countTwos = 0;
-        while(result > 0) {
-            if(result % 10 == 2) {
-                countTwos += 1;
+        while(copyNum > 0) {
+            if(copyNum % 10 == 2) {
+                countTwos++;
             }
-            result /= 10;
+            copyNum /= 10;
         }
         System.out.println("число " + num + " содержит (" + countTwos +
                 ((countTwos % 2 == 0) ? ") чётное " : ") нечетное ")  + "количество двоек");
@@ -128,32 +128,32 @@ class CyclesTheme {
         System.out.println("i. символы, идущие до цифр и имеющие нечетные коды\n");
         System.out.println("DECIMAL  |  CHARACTER");
         for (char ch = 1; ch < '0'; ch += 2) {
-            System.out.printf("%3d%13s%n", (int) ch, (char) ch);
+            System.out.printf("%3d%13c%n", (int) ch, ch);
         }
         System.out.println("\nii. маленькие английские буквы, имеющие четные коды\n");
         System.out.println("DECIMAL  |  CHARACTER");
         for (char ch = 'b'; ch <= 'z'; ch += 2) {
-            System.out.printf("%4d%13s%n", (int) ch, (char) ch);
+            System.out.printf("%4d%13c%n", (int) ch, ch);
         }
 
         System.out.println("\n\n8. Проверка, является ли число палиндромом\n");
 
         num = 1234321;
-        int numReverse  = num;
-        int resultReverse = 0;
+        copyNum  = num;
+        int reverseNum = 0;
         boolean isPalindrom = true;
 
-        while(num1 > 0) {
-        int digit = num1 % 10;
-        num1 = num1 / 10;
-        num2 = num2 * 10;
-        num2 = num2 + digit;
+        while(copyNum > 0) {
+            int digit = copyNum % 10;
+            copyNum /= 10;
+            reverseNum *= 10;
+            reverseNum += digit;
         }
         for (int i = num; i > 0;i /= 10) {
-            if(i % 10 != num2 % 10) {
+            if(i % 10 != reverseNum % 10) {
                isPalindrom = false;
             }
-            num2 /= 10;    
+            reverseNum /= 10;
         }
         System.out.println((isPalindrom)
                 ? "Число " + num + " палиндром" : "Число " + num + " не палиндром");
@@ -182,22 +182,22 @@ class CyclesTheme {
         System.out.println("                ТАБЛИЦА ПИФАГОРА\n");
         for (int i = 1; i < 11;i++) {
             for (int j = 1;j < 11;j++) {
-            if(i == 1 && j == 1) {
-                System.out.printf("%4s", " ");
-            } else {
-                System.out.printf("%4d", i * j);
-            }
-            if(j == 1) {
-                System.out.printf("%3s", "|");
-            }
-            }
-        System.out.println();
-        if(i == 1) {
-            for (int k = 1;k < 11;k++) {
-                System.out.printf("%4s", "_____");
+                if(i == 1 && j == 1) {
+                    System.out.printf("%4s", " ");
+                } else {
+                    System.out.printf("%4d", i * j);
+                }
+                if(j == 1) {
+                    System.out.printf("%3s", "|");
+                }
             }
             System.out.println();
-        }
+            if(i == 1) {
+                for (int k = 0;k < 11;k++) {
+                    System.out.printf("%4s", "____");
+                }
+                System.out.println();
+            }
         }
     }
 }
