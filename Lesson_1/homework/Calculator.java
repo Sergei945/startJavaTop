@@ -19,12 +19,13 @@ class Calculator {
             }
         } else if(sign == '%') {
             result = a % b;
-        }
-        if(sign == '/' && b != 0) {
+        } else if(sign == '/' && ) {
+            if(b != 0) {
+                System.out.println("Ошибка. На ноль делить нельзя");
+                return;
+            }
             result = a / b;
-        } else {
-            System.out.println("Ошибка. На ноль делить нельзя");
-        }
+        } 
         System.out.println(sign == '/' && b != 0 ?
                 a + " " + sign + " " + b + " " + '=' + " "  + result : "");
     }

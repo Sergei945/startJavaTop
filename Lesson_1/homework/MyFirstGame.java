@@ -1,7 +1,6 @@
 class MyFirstGame {
 
     public static void main(String[] args) {
-        // int secretNum = 1 + (int) (Math.random() * 100);
         int secretNum = 100;
         int playerNum = 50;
         int min = 1;
