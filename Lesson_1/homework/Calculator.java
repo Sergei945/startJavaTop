@@ -19,7 +19,7 @@ class Calculator {
             }
         } else if(sign == '%') {
             result = a % b;
-        } else if(sign == '/' && ) {
+        } else if(sign == '/') {
             if(b != 0) {
                 System.out.println("Ошибка. На ноль делить нельзя");
                 return;
