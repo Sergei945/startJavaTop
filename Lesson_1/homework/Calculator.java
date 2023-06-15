@@ -4,8 +4,7 @@ class Calculator {
         int a = 2;
         int b = 4;
         int result = 0;
-        char sign = '%';
-        boolean isDivisionByZero = false;
+        char sign = '/';
         
         if(sign == '+') {
             result = a + b;
@@ -24,12 +23,9 @@ class Calculator {
         if(sign == '/' && b != 0) {
             result = a / b;
         } else {
-            isDivisionByZero = true;
-        }
-        if(isDivisionByZero) {
-            System.out.println(a + "" + sign + "" + b +  '='  + result);
-        } else {
             System.out.println("Ошибка. На ноль делить нельзя");
         }
+        System.out.println(sign == '/' && b != 0 ?
+                a + " " + sign + " " + b + " " + '=' + " "  + result : "");
     }
 }
