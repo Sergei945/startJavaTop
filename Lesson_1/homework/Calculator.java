@@ -25,8 +25,8 @@ class Calculator {
                 return;
             }
             result = a / b;
-        } 
+        }
         System.out.println(sign == '/' && b != 0 ?
-                a + " " + sign + " " + b + " " + '=' + " "  + result : "");
+                a + " " + sign + " " + b + " = "  + result : "");
     }
 }
