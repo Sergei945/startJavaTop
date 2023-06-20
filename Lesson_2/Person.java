@@ -9,14 +9,16 @@ public class Person {
     void go() {
         System.out.println(name + " идёт");
     }
+
     void sit() {
         System.out.println(name + " сидит");
     }
+
     void speak() {
         System.out.println(name + " говорит");
     }
+    
     void learnJava() {
         System.out.println(name + " Учит Java");
     }
-
 }
