@@ -1,16 +1,18 @@
 public class WolfTest {
     public static void main(String[] args) {
         Wolf vasia = new Wolf();
-        vasia.name = "Вася";
-        vasia.sex = "Самец";
-        vasia.weight = 35;
-        vasia.color = "Серый";
+        vasia.setName("Вася");
+        vasia.setSex("Самец");
+        vasia.setWeight(35);
+        vasia.setColor("Серый");
+        vasia.setAge(4);
 
         System.out.println("В заповеднике есть волк его данные: \n" +
-                "Имя - " + vasia.name +
-                "\nПол - " + vasia.sex +
-                "\nВес - " + vasia.weight +
-                "\nЦвет - " + vasia.color);
+                "Имя - " + vasia.getName() + "\n" +
+                "Пол - " + vasia.getSex() + "\n" +
+                "Вес - " + vasia.getWeight() + "\n" +
+                "Возраст - " + vasia.getAge() + "\n" +
+                "Цвет - " + vasia.getColor() + "\n");
         vasia.sit();
         vasia.go();
         vasia.run();
