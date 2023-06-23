@@ -4,7 +4,7 @@ class JaegersTest {
         Jaegers gipsyDanger  = new Jaegers("Gipsy Danger", "Mark-3", 
                 "Destroyed", "USA", 260, 1980, 7, 8, 6, 9);
         Jaegers chernoAlpha   = new Jaegers();
-        
+
         chernoAlpha.setName("Cherno Alpha");
         chernoAlpha.setOrigin("Russia");
         chernoAlpha.setMark("Mark-1");
@@ -16,7 +16,14 @@ class JaegersTest {
         chernoAlpha.setArmor(10);
         printInfoJeagers(gipsyDanger);
         printInfoJeagers(chernoAlpha);
+        gipsyDanger.go();
+        gipsyDanger.scan();
+        gipsyDanger.hit();
+        chernoAlpha.go();
+        chernoAlpha.scan();
+        chernoAlpha.hit();
     }
+
     public static void printInfoJeagers(Jaegers jaeger) {
         System.out.println("Егерь по имени " + jaeger.getName() + 
                 " имеет следующие характеристики:\n" +
