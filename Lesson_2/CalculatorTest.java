@@ -19,16 +19,10 @@ class CalculatorTest {
                 continue;
             }
             console.nextLine();
-            option = "";
-            while(!option.equals("yes")) {
+            do {
                 System.out.print("Желаете продолжить вычисления? (yes / no) ");
-                if(option.equals("no")) {
-                    return;
-                }
                 option = console.nextLine();
-            }
-
-
+            } while(!option.equals("yes") && !option.equals("no"));
         }
     }
 }

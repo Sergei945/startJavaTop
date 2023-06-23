@@ -10,9 +10,7 @@ class Jaegers {
     private int armor;
     private int kaijuKilled;
 
-    public Jaegers() {
-
-    }
+    public Jaegers() {}
 
     public Jaegers(String name, String mark, String status, String origin, int height, 
             int weight, int speed, int strength, int armor, int kaijuKilled) {
@@ -100,7 +98,7 @@ class Jaegers {
     }
 
     public String toString() {
-        return ("Егерь по имени " + name + 
+        return "Егерь по имени " + name + 
                 " имеет следующие характеристики:\n" +
                 "Происхождение - " + origin + "\n" +
                 "Марка - " + mark + "\n" +
@@ -109,6 +107,6 @@ class Jaegers {
                 "Скорость - " + speed + "\n" +
                 "Высота - " + height + "\n" +
                 "Сила - " + strength + "\n" +
-                "Броня - " + armor + "\n");
+                "Броня - " + armor + "\n";
     }
 }
