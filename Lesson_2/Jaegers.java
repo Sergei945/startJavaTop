@@ -115,7 +115,7 @@ class Jaegers {
         return status;
     }
 
-    public void setStatu(String status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -128,14 +128,14 @@ class Jaegers {
     }
 
     public void go() {
-        System.out.println(name + " Идёт к цели");
+        System.out.println(name + " идёт к цели");
     }
 
     public void scan() {
-        System.out.println(name + "Сканирует цель");
+        System.out.println(name + "сканирует цель");
     }
 
     public void hit() {
-        System.out.println(name + "бьёт цель и наносит " + strength + " урона");
+        System.out.println(name + " бьёт цель и наносит " + strength + " урона");
     }
 }
