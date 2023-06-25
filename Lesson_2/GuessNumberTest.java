@@ -3,7 +3,7 @@ import java.util.Scanner;
 class GuessNumberTest {
     
     public static void main(String[] args) {
-        Scanner console = new Scanner(System.in);
+        Scanner console = new Scanner(System.in, "cp866");
         System.out.print("Игрок 1 введите ваше имя - ");
         Player playerOne = new Player(console.nextLine());
         System.out.print("Игрок 2 введите ваше имя - ");
@@ -11,22 +11,22 @@ class GuessNumberTest {
         GuessNumber computerGame = new GuessNumber(playerOne, playerTwo);
         String option = "";
 
-        System.out.println("Мы начинаем игру угадай число введите число от 1 до 100");
+        System.out.println("Загаданное число " + computerGame.getSecretNum());
         while(!option.equals("no")) {
             System.out.print(playerOne.getName() + " введите число ");
             playerOne.setNum(console.nextInt());
-            System.out.print(playerTwo.getName() + " введите число ");
-            playerTwo.setNum(console.nextInt());
-            if(playerTwo.getNum() == -1 || playerTwo.getNum() == -1) {
-                System.out.println("Неверные значения попробуйте ещё раз ввести число от 1 до 100");
-                continue;
+            computerGame.checkNum(playerOne);
+            if(computerGame.getSecretNum() != playerOne.getNum()) {
+                System.out.print(playerTwo.getName() + " введите число ");
+                playerTwo.setNum(console.nextInt());
+                computerGame.checkNum(playerTwo);
             }
-            System.out.println(computerGame.checkNum(playerOne));
-            System.out.println(computerGame.checkNum(playerTwo));
             if(computerGame.getSecretNum() == playerOne.getNum() ||
                     computerGame.getSecretNum() == playerTwo.getNum()) {
+                computerGame.newSecretNum();
                 do {
                     System.out.print("Желаете продолжить игру? (yes / no) ");
+                    console.nextLine();
                     option = console.nextLine();
                 } while(!option.equals("yes") && !option.equals("no"));
             }

@@ -13,18 +13,22 @@ class GuessNumber {
         return secretNum;
     }
 
-    public String checkNum(Player player) {
-        return (player.getNum() > secretNum) ?
-                ("Число " + player.getNum() + " игрока " + player.getName() +
-                        " больше того, что загадал компьютер") :
-                player.getNum() < secretNum ?
-                ("Число " + player.getNum() + " игрока " + player.getName() +
-                        " меньше того, что загадал компьютер") :
-                "Поздравляю " + player.getName() + " вы выиграли загаданное число - " + secretNum;
+    public void checkNum(Player player) {
+        if(playerOne.getNum() != secretNum && playerTwo.getNum() != secretNum) {
+            if(player.getNum() > secretNum) {
+               System.out.println("Число " + player.getNum() + " игрока " + player.getName() + 
+                        " больше того, что загадал компьютер"); 
+            } else if(player.getNum() < secretNum) {
+                System.out.println("Число " + player.getNum() + " игрока " + player.getName() +
+                        " меньше того, что загадал компьютер");
+            }
+        } else {
+            System.out.println("Поздравляю " + player.getName() + 
+                    " вы выиграли загаданное число - " + secretNum);
+        }
     }
 
     public void newSecretNum() {
-        this.secretNum = (int) (Math.random() * 100) + 1;
+        secretNum = (int) (Math.random() * 100) + 1;
     }
-
 }

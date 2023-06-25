@@ -1,7 +1,6 @@
 class JaegersTest {
 
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) {  
         Jaegers chernoAlpha = new Jaegers();
         chernoAlpha.setName("Cherno Alpha");
         chernoAlpha.setOrigin("Russia");
@@ -24,5 +23,4 @@ class JaegersTest {
         gipsyDanger.scan();
         gipsyDanger.hit();
     }
-
 }
