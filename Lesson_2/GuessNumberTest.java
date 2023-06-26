@@ -20,6 +20,7 @@ class GuessNumberTest {
                 do {
                     System.out.print("Желаете продолжить игру? (yes / no) ");
                     option = console.nextLine();
+                    Player.win = false;
                 } while(!option.equals("yes") && !option.equals("no"));
             }
         }
