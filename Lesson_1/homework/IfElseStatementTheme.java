@@ -86,7 +86,7 @@ class IfElseStatementTheme {
                 System.out.println("сотни 3 разряд - " + hundreds1);
             }
         } else {
-            System.out.println("Данные числа не имею одинаковых цифр");
+            System.out.println("Данные числа не имеют одинаковых цифр");
         }
 
         System.out.println("\n\n5. Определение символа по его коду\n");
