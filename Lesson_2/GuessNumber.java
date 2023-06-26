@@ -12,10 +12,8 @@ class GuessNumber {
         this.player2 = player2;
     }
 
-
-
     public void playGame(Player player) {
-        if(player.isWin() == false) {
+        if(!Player.win) {
             System.out.println(secretNum);
             System.out.print(player.getName() + " введите число ");
             player.setNum(console.nextInt());
@@ -32,8 +30,7 @@ class GuessNumber {
             System.out.println("Поздравляю " + player.getName() + 
                     " вы выиграли загаданное число - " + secretNum);
             secretNum = (int) (Math.random() * 100) + 1;
-            return true;
+            Player.win = true;
         }
-        return false;
     }
 }

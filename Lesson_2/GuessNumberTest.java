@@ -13,14 +13,15 @@ class GuessNumberTest {
         String option = "";
 
         while(!option.equals("no")) {
-            if() {
+            if(!Player.win) {
+                game.playGame(player1);
+                game.playGame(player2);
+            } else {
                 do {
                     System.out.print("Желаете продолжить игру? (yes / no) ");
                     option = console.nextLine();
                 } while(!option.equals("yes") && !option.equals("no"));
             }
-            game.playGame(player1);
-            game.playGame(player2);
         }
     }
 }

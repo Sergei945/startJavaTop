@@ -2,15 +2,7 @@ class Player {
 
     private String name;
     private int num;
-    private static boolean win = false;
-
-    public boolean isWin() {
-        return win;
-    }
-
-    public void setWin(boolean win) {
-        this.win = win;
-    }
+    static boolean win = false;
 
     public Player(String name) {
         this.name = name;
