@@ -2,7 +2,6 @@ class Player {
 
     private String name;
     private int num;
-    static boolean win = false;
 
     public Player(String name) {
         this.name = name;
