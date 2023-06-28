@@ -15,16 +15,13 @@ class Player {
         return num;
     }
 
-    public boolean checkNum() {
+    public boolean setNum(int num) {
         if((num >= 1 && num <= 100)) {
+            this.num = num;
             return true;
-        } else {
+         } else {
             System.out.println("Ошибка введено число меньше 1 или больше 100 попробуйте снова");
             return false;
-        }
-    }
-
-    public void setNum(int num) {
-            this.num = num;
+         }
     }
 }

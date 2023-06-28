@@ -15,7 +15,6 @@ class GuessNumber {
     public void play() {
         System.out.println("Игра началась. Компьютер загадал число от 1 до 100. Отгадайте быстрее соперника");
         randomNum();
-        System.out.println(secretNum);
         while(!isGuessed (player1) && !isGuessed(player2)) {}
     }
 
@@ -27,9 +26,7 @@ class GuessNumber {
         }
         do {
             System.out.print(player.getName() + " введите число от 1 до 100 ");
-            player.setNum(console.nextInt());
-            console.nextLine();
-        } while(!player.checkNum());
+        } while(!player.setNum(console.nextInt()));
         if(player.getNum() > secretNum) {
             System.out.println("Число " + player.getNum() + " игрока " + player.getName() + 
                     " больше того, что загадал компьютер");
