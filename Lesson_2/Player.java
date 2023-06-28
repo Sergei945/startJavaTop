@@ -15,11 +15,15 @@ class Player {
         return num;
     }
 
-    public void setNum(int num) {
-        if(num >= 1 && num <= 100) {
-            this.num = num;
+    public boolean checkNum() {
+        if((num >= 1 && num <= 100)) {
+            return true;
         } else {
-            this.num = -1;
+            return false;
         }
+    }
+
+    public void setNum(int num) {
+            this.num = num;
     }
 }

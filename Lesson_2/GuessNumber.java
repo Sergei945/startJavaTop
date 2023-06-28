@@ -20,27 +20,25 @@ class GuessNumber {
     }
 
     public boolean isGuessed(Player player) {
-        if(player.getNum() != secretNum) {
-            do {
-                System.out.print(player.getName() + " введите число от 1 до 100 ");
-                player.setNum(console.nextInt());
-                console.nextLine();
-                if(player.getNum() == -1) {
-                    System.out.println("Ошибка введено число меньше 1 или больше 100 попробуйте снова");
-                }
-                } while(player.getNum() == -1);
-            }
-            if(player.getNum() > secretNum) {
-                System.out.println("Число " + player.getNum() + " игрока " + player.getName() + 
-                        " больше того, что загадал компьютер");
-            } else if(player.getNum() < secretNum) {
-                System.out.println("Число " + player.getNum() + " игрока " + player.getName() +
-                        " меньше того, что загадал компьютер");
-            }
         if(player.getNum() == secretNum) {
             System.out.println("Поздравляю " + player.getName() + 
                     " вы выиграли загаданное число - " + secretNum);
             return true;
+        }
+        do {
+            System.out.print(player.getName() + " введите число от 1 до 100 ");
+            player.setNum(console.nextInt());
+            console.nextLine();
+            if(!player.checkNum()) {
+                System.out.println("Ошибка введено число меньше 1 или больше 100 попробуйте снова");
+            }
+        } while(!player.checkNum());
+        if(player.getNum() > secretNum) {
+            System.out.println("Число " + player.getNum() + " игрока " + player.getName() + 
+                    " больше того, что загадал компьютер");
+        } else if(player.getNum() < secretNum) {
+            System.out.println("Число " + player.getNum() + " игрока " + player.getName() +
+                    " меньше того, что загадал компьютер");
         }
         return false;
     }
