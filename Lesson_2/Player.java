@@ -19,6 +19,7 @@ class Player {
         if((num >= 1 && num <= 100)) {
             return true;
         } else {
+            System.out.println("Ошибка введено число меньше 1 или больше 100 попробуйте снова");
             return false;
         }
     }

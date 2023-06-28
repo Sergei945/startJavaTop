@@ -29,9 +29,6 @@ class GuessNumber {
             System.out.print(player.getName() + " введите число от 1 до 100 ");
             player.setNum(console.nextInt());
             console.nextLine();
-            if(!player.checkNum()) {
-                System.out.println("Ошибка введено число меньше 1 или больше 100 попробуйте снова");
-            }
         } while(!player.checkNum());
         if(player.getNum() > secretNum) {
             System.out.println("Число " + player.getNum() + " игрока " + player.getName() + 
