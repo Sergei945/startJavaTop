@@ -1,3 +1,5 @@
+package com.startJava.Lesson_2_3.robot;
+
 class JaegersTest {
 
     public static void main(String[] args) {  

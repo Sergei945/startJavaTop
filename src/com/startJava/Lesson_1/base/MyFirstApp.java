@@ -1,3 +1,5 @@
+package com.startJava.Lesson_1.base;
+
 class MyFirstApp {
 
     public static void main(String[] args) {

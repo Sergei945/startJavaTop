@@ -1,3 +1,5 @@
+package com.startJava.Lesson_1.finish;
+
 class Calculator {
     
     public static void main(String[] args) {

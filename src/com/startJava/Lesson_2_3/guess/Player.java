@@ -1,3 +1,5 @@
+package com.startJava.Lesson_2_3.guess;
+
 class Player {
 
     private String name;
@@ -19,9 +21,8 @@ class Player {
         if((num >= 1 && num <= 100)) {
             this.num = num;
             return true;
-         } else {
-            System.out.println("Ошибка введено число меньше 1 или больше 100 попробуйте снова");
-            return false;
          }
+        System.out.println("Ошибка введено число меньше 1 или больше 100 попробуйте снова");
+        return false; 
     }
 }

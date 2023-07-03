@@ -1,3 +1,5 @@
+package com.startJava.Lesson_1.base;
+
 class IfElseStatementTheme {
 
     public static void main(String[] args) {
@@ -162,13 +164,13 @@ class IfElseStatementTheme {
 
         System.out.println("\n\n9. Подсчет количества банкнот\n");
 
-        int money = 567;
+        int money = 1127;
         int hundreds = money / 100;
         int tens = (money / 10) % 10;
         int ones = money % 10;
         int inCash100 = 10;
-        int inCash10 = 5;
-        int inCash1 = 50;
+        int inCash10 = 13;
+        int inCash1 = 23;
         int outCash100 = 0;
         int outCash10 = 0;
         int outCash1 = 0;
@@ -203,15 +205,14 @@ class IfElseStatementTheme {
                 ones -= inCash1;
                 inCash1 = 0;
             }
-            System.out.println("i. номиналы в наличии: сотни - "  + inCash100 +
+            System.out.println("i. Номиналы в наличии: сотни - "  + inCash100 +
                 ", десятки - " + inCash10 + " , единицы - " + inCash1);
-            System.out.println("ii. Требуемое их количество - "  + 
+            System.out.println("ii. Требуемое их количество: сотни - "  + 
                     outCash100 + ", десятки - " + outCash10 + " , единицы - " + outCash1 + "\n" + 
-                    "iii. выдаваемая сумма: " + 
+                    "iii. Выдаваемая сумма: " + 
                     ((outCash100 * 100) + (outCash10 * 10) + (outCash1 * 1)));
         } else {
             System.out.println("Недостаточно средств");
         }
-        
     }
 }
