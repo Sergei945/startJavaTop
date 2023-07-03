@@ -3,7 +3,7 @@
 books/
 out/
 
-src/**/options
+src/**/*options.txt
 ### Java ###
 # Compiled class file
 *.class
