@@ -2,8 +2,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=java
 books/
 out/
-
-src/**/*options.txt
+play/
+src/**/*options
 ### Java ###
 # Compiled class file
 *.class
