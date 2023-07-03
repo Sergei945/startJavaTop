@@ -2,8 +2,9 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=java
 books/
 out/
-play/
+play_lesson_1/
 src/**/*options
+src/**/*optionsj
 ### Java ###
 # Compiled class file
 *.class
