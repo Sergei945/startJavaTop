@@ -1,4 +1,4 @@
-package com.startJava.Lesson_2_3.guess;
+package com.startJava.Lesson_2_3_4.guess;
 
 class Player {
 
