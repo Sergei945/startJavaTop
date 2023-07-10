@@ -114,13 +114,6 @@ public class ArrayTheme {
 
     private static void addIntElementsArray(int startRandomNum, int endRandomNum) {
         int[] array = new int[30];
-        bubbleSort(array);
-        for (int i = 0; i < array.length; i++) {
-            if (i % 10 == 0 && i != 0) {
-                System.out.println();
-            }
-            System.out.print(array[i] + " ");
-        }
         for (int i = 0; i < array.length; i++) {
             int randomNum = (int) (Math.random() * (endRandomNum - startRandomNum)) + startRandomNum;
             for (int j = 0; j < array.length; j++) {
@@ -130,6 +123,13 @@ public class ArrayTheme {
                 }
             }
             array[i] = randomNum;
+        }
+        bubbleSort(array);
+        for (int i = 0; i < array.length; i++) {
+            if (i % 10 == 0 && i != 0) {
+                System.out.println();
+            }
+            System.out.print(array[i] + " ");
         }
     }
 
