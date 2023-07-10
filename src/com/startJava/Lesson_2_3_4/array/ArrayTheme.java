@@ -1,26 +1,23 @@
 package com.startJava.Lesson_2_3_4.array;
 
-import java.text.DecimalFormat;
-import java.util.Arrays;
-
 public class ArrayTheme {
     public static void main(String[] args) {
         System.out.println("1. Реверс значений массива\n");
 
-        int[] intArray = {5, 12, 1, 17, 20, 30, 50};
+        int[] arrayInt = {1, 2, 3, 4, 5, 6, 7};
         System.out.print("До модификации: ");
-        printIntArray(intArray);
+        print(arrayInt);
         System.out.print("После модификации: ");
-        intArray = reverseIntArray(intArray);
-        printIntArray(intArray);
+        reverseIntArray(arrayInt);
+        print(arrayInt);
 
         System.out.println("\n2. Вывод произведения элементов массива\n");
 
-        intArray = new int[10];
-        for (int i = 0; i < intArray.length; i++) {
-            intArray[i] = i;
+        arrayInt = new int[10];
+        for (int i = 0; i < arrayInt.length; i++) {
+            arrayInt[i] = i;
         }
-        toStrProductArrayEls(intArray);
+        toStrProductArrayElements(arrayInt);
 
         System.out.println("\n3. Удаление элементов массива\n");
 
@@ -28,46 +25,101 @@ public class ArrayTheme {
         for (int i = 0; i < arrayFloat.length; i++) {
             arrayFloat[i] = (float) Math.random();
         }
-        printFloatArray(arrayFloat);
-        int countDeleteEls = deleteArrayElements(arrayFloat);
+        print(arrayFloat);
         System.out.println();
-        printFloatArray(arrayFloat);
-        System.out.println("\nВсего обнулено ячеек - " + countDeleteEls);
+        print(arrayFloat);
+        System.out.println("\nВсего обнулено ячеек - " + deleteArrayElements(arrayFloat));
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке\n");
 
-        char[] arrayChar = new char[26];
-        for (char i = 'A', j = 0; i <= 'Z'; i++, j++) {
-            arrayChar[j]  = i;
+        char[] arrayLetters = new char[26];
+        for (int i = 0; i < 26; i++) {
+            arrayLetters[i] = (char) ('A' + i);
         }
-        triangleLetters(arrayChar);
+        printStairsLetters(arrayLetters);
 
         System.out.println("\n5. Генерация уникальных чисел\n");
 
-        intArray = new int[30];
-        addIntElsArray(intArray, 60, 99);
-        bubbleSort(intArray);
-        for (int i = 0; i < intArray.length; i++) {
+        arrayInt = new int[30];
+        addIntElementsArray(arrayInt, 60, 99);
+        bubbleSort(arrayInt);
+        for (int i = 0; i < arrayInt.length; i++) {
             if (i % 10 == 0 && i != 0) {
                 System.out.println();
             }
-            System.out.print(intArray[i] + " ");
+            System.out.print(arrayInt[i] + " ");
         }
     }
 
-    public static void bubbleSort(int[] sortArr){
-        for (int i = 0; i < sortArr.length - 1; i++) {
-            for(int j = 0; j < sortArr.length - i - 1; j++) {
-                if(sortArr[j + 1] < sortArr[j]) {
-                    int swap = sortArr[j];
-                    sortArr[j] = sortArr[j + 1];
-                    sortArr[j + 1] = swap;
-                }
+    private static void reverseIntArray(int[] array) {
+        int length = array.length / 2;
+        if(array.length % 2 == 0) {
+            length--;
+        }
+        for (int i = length, j = array.length / 2; i >= 0; i--, j++) {
+            int swap = array[j];
+            array[j] = array[i];
+            array[i] = swap;
+        }
+    }
+
+    private static void toStrProductArrayElements(int[] array) {
+        StringBuilder str = new StringBuilder();
+        for (int i : array) {
+            str.append((i != 0 && i != array[array.length - 1]) ? i : "");
+            str.append((i != 0 && i != array[array.length - 1] && i != array[array.length - 2]) ? "*" : "");
+        }
+        System.out.println(str + "=" + productArrayElements(array));
+    }
+
+    private static int productArrayElements(int[] array) {
+        int result = array[1];
+        for (int i = 2; i < array.length - 1; i++) {
+            result *= array[i];
+        }
+        return result;
+    }
+
+    private static void print(int[] array) {
+        for (int i : array) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    private static int deleteArrayElements(float[] array) {
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
+            if(array[array.length / 2] < array[i]) {
+                array[i] = 0;
+                count++;
             }
         }
+        return count;
     }
 
-    public static void addIntElsArray(int[] array, int startRandomNum, int endRandomNum) {
+    private static void print(float[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.printf(" %.3f" , array[i]);
+            if (i == array.length / 2) {
+                System.out.println();
+            }
+        }
+        System.out.println();
+    }
+
+    private static void printStairsLetters(char[] array) {
+        int count = 1;
+        for (int i = array.length; i > 0; i--) {
+            for (int j = 0; j < count; j++) {
+                System.out.print(array[(array.length - 1) - j]);
+            }
+            count++;
+            System.out.println();
+        }
+    }
+
+    private static void addIntElementsArray(int[] array, int startRandomNum, int endRandomNum) {
         for (int i = 0; i < array.length; i++) {
             int randomNum = (int) (Math.random() * (endRandomNum - startRandomNum)) + startRandomNum;
             for (int j = 0; j < array.length; j++) {
@@ -80,65 +132,16 @@ public class ArrayTheme {
         }
     }
 
-    public static void triangleLetters(char[] arrayChar) {
-        for (int i = arrayChar.length, count = 1; i > 0; i--, count++) {
-            for (int j = 0; j < count; j++) {
-                System.out.print(arrayChar[(arrayChar.length - 1) - j]);
-            }
-            System.out.println();
-        }
-    }
-
-    public static int deleteArrayElements(float[] array) {
-        int count = 0;
-        float middleNum = array[array.length / 2];
-        for (int i = 0; i < array.length; i++) {
-            if(array[i] > middleNum) {
-                array[i] = 0;
-                count++;
+    private static void bubbleSort(int[] array){
+        for (int i = 0; i < array.length - 1; i++) {
+            for(int j = 0; j < array.length - i - 1; j++) {
+                if(array[j + 1] < array[j]) {
+                    int swap = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = swap;
+                }
             }
         }
-        return count;
     }
 
-    public static void printIntArray(int[] array) {
-        for (int i : array) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
-    }
-
-    public static void printFloatArray(float[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.printf(" %.3f" , array[i]);
-            if (i == array.length / 2) {
-                System.out.println();
-            }
-        }
-        System.out.println();
-    }
-
-    public static int[] reverseIntArray(int[] array) {
-        int[] newArray = new int[array.length];
-        for (int i = array.length - 1, j = 0; i >= 0; i--, j++) {
-            newArray[j] = array[i];
-        }
-        return newArray;
-    }
-
-    public static int productArrayEls(int[] array) {
-        int result = array[1];
-        for (int i = 2; i < array.length - 1; i++) {
-            result *= array[i];
-        }
-        return result;
-    }
-
-    public static void toStrProductArrayEls(int[] array) {
-        StringBuilder str = new StringBuilder();
-        for (int i : array) {
-             str.append((i != 0 && i != 9) ? i + " " : "");
-        }
-        System.out.println(str + "= " + productArrayEls(array));
-    }
 }
