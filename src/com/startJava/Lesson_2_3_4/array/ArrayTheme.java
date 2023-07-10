@@ -4,54 +4,28 @@ public class ArrayTheme {
     public static void main(String[] args) {
         System.out.println("1. Реверс значений массива\n");
 
-        int[] arrayInt = {1, 2, 3, 4, 5, 6, 7};
-        System.out.print("До модификации: ");
-        print(arrayInt);
-        System.out.print("После модификации: ");
-        reverseIntArray(arrayInt);
-        print(arrayInt);
+        reverseIntArray();
 
         System.out.println("\n2. Вывод произведения элементов массива\n");
 
-        arrayInt = new int[10];
-        for (int i = 0; i < arrayInt.length; i++) {
-            arrayInt[i] = i;
-        }
-        toStrProductArrayElements(arrayInt);
+        toStringProductArrayElements();
 
         System.out.println("\n3. Удаление элементов массива\n");
 
-        float[] arrayFloat = new float[15];
-        for (int i = 0; i < arrayFloat.length; i++) {
-            arrayFloat[i] = (float) Math.random();
-        }
-        print(arrayFloat);
-        System.out.println();
-        print(arrayFloat);
-        System.out.println("\nВсего обнулено ячеек - " + deleteArrayElements(arrayFloat));
+        deleteArrayElements();
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке\n");
 
-        char[] arrayLetters = new char[26];
-        for (int i = 0; i < 26; i++) {
-            arrayLetters[i] = (char) ('A' + i);
-        }
-        printStairsLetters(arrayLetters);
+        printStairsLetters();
 
         System.out.println("\n5. Генерация уникальных чисел\n");
 
-        arrayInt = new int[30];
-        addIntElementsArray(arrayInt, 60, 99);
-        bubbleSort(arrayInt);
-        for (int i = 0; i < arrayInt.length; i++) {
-            if (i % 10 == 0 && i != 0) {
-                System.out.println();
-            }
-            System.out.print(arrayInt[i] + " ");
-        }
+        addIntElementsArray(60, 99);
+
     }
 
-    private static void reverseIntArray(int[] array) {
+    private static void reverseIntArray() {
+        int[] array = {1, 2, 3, 4, 5, 6, 7};
         int length = array.length / 2;
         if(array.length % 2 == 0) {
             length--;
@@ -61,9 +35,17 @@ public class ArrayTheme {
             array[j] = array[i];
             array[i] = swap;
         }
+        System.out.print("До модификации: ");
+        print(array);
+        System.out.print("После модификации: ");
+        print(array);
     }
 
-    private static void toStrProductArrayElements(int[] array) {
+    private static void toStringProductArrayElements() {
+        int[] array = new int[10];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = i;
+        }
         StringBuilder str = new StringBuilder();
         for (int i : array) {
             str.append((i != 0 && i != array[array.length - 1]) ? i : "");
@@ -87,7 +69,11 @@ public class ArrayTheme {
         System.out.println();
     }
 
-    private static int deleteArrayElements(float[] array) {
+    private static void deleteArrayElements() {
+        float[] array = new float[15];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (float) Math.random();
+        }
         int count = 0;
         for (int i = 0; i < array.length; i++) {
             if(array[array.length / 2] < array[i]) {
@@ -95,7 +81,10 @@ public class ArrayTheme {
                 count++;
             }
         }
-        return count;
+        print(array);
+        System.out.println();
+        print(array);
+        System.out.println("\nВсего обнулено ячеек - " + count);
     }
 
     private static void print(float[] array) {
@@ -108,7 +97,11 @@ public class ArrayTheme {
         System.out.println();
     }
 
-    private static void printStairsLetters(char[] array) {
+    private static void printStairsLetters() {
+        char[] array = new char[26];
+        for (int i = 0; i < 26; i++) {
+            array[i] = (char) ('A' + i);
+        }
         int count = 1;
         for (int i = array.length; i > 0; i--) {
             for (int j = 0; j < count; j++) {
@@ -119,7 +112,15 @@ public class ArrayTheme {
         }
     }
 
-    private static void addIntElementsArray(int[] array, int startRandomNum, int endRandomNum) {
+    private static void addIntElementsArray(int startRandomNum, int endRandomNum) {
+        int[] array = new int[30];
+        bubbleSort(array);
+        for (int i = 0; i < array.length; i++) {
+            if (i % 10 == 0 && i != 0) {
+                System.out.println();
+            }
+            System.out.print(array[i] + " ");
+        }
         for (int i = 0; i < array.length; i++) {
             int randomNum = (int) (Math.random() * (endRandomNum - startRandomNum)) + startRandomNum;
             for (int j = 0; j < array.length; j++) {
