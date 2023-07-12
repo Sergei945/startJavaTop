@@ -3,10 +3,10 @@ package com.startJava.Lesson_2_3_4.array;
 public class ArrayTheme {
     public static void main(String[] args) {
         reverseIntArray();
-        outProductArrayElements();
+        printProductArrayElements();
         deleteArrayElements();
-        printStairsLetters();
-        addIntElementsArray(60, 99);
+        printLettersStairs();
+        generationUniqueNumbers(60, 99);
     }
 
     private static void reverseIntArray() {
@@ -36,39 +36,43 @@ public class ArrayTheme {
         System.out.println();
     }
 
-    private static void outProductArrayElements() {
+    private static void printProductArrayElements() {
         System.out.println("\n2. Вывод произведения элементов массива\n");
-        int[] intArray = new int[10];
-        for (int i = 0; i < intArray.length; i++) {
-            intArray[i] = i;
+        int[] multipliers = new int[10];
+        int len = multipliers.length;
+        for (int i = 0; i < len; i++) {
+            multipliers[i] = i;
         }
         StringBuilder str = new StringBuilder();
-        int result = intArray[1];
-        for (int i = 2; i < intArray.length - 1; i++) {
-            str.append((intArray[i] != 0 && i != intArray[intArray.length - 1]) ? i : "");
-            str.append((intArray[i] != 0 && i != intArray[intArray.length - 1] &&
-                    i != intArray[intArray.length - 2]) ? " * " : "");
-            result *= intArray[i];
+        int result = multipliers[1];
+        for (int i = 1; i < len - 1; i++) {
+            str.append(i);
+            str.append((multipliers[i] != 0 && i != multipliers[len - 1] &&
+                    i != multipliers[len - 2]) ? " * " : "");
+            result *= multipliers[i];
         }
         System.out.println(str + " = " + result);
+        System.out.println("\n" + multipliers[0] + " находится под индексом - 0\n" +
+                multipliers[multipliers.length - 1] + " находится под индексом - " + multipliers.length);
     }
 
     private static void deleteArrayElements() {
         System.out.println("\n3. Удаление элементов массива\n");
-        float[] floatArray = new float[15];
-        for (int i = 0; i < floatArray.length; i++) {
-            floatArray[i] = (float) Math.random();
+        float[] realNumbers = new float[15];
+        int len = realNumbers.length;
+        for (int i = 0; i < len; i++) {
+            realNumbers[i] = (float) Math.random();
         }
+        print(realNumbers);
         int count = 0;
-        float middleNumArray = floatArray[floatArray.length / 2];
-        for (int i = 0; i < floatArray.length; i++) {
-            if(floatArray[i] > middleNumArray) {
-                floatArray[i] = 0;
+        float middleCellValue = realNumbers[len / 2];
+        for (int i = 0; i < len; i++) {
+            if(realNumbers[i] > middleCellValue) {
+                realNumbers[i] = 0;
                 count++;
             }
         }
-        print(floatArray);
-        print(floatArray);
+        print(realNumbers);
         System.out.println("\nВсего обнулено ячеек - " + count);
     }
 
@@ -79,55 +83,55 @@ public class ArrayTheme {
                 System.out.println();
             }
         }
-        System.out.println();
-        System.out.println();
+        System.out.println("\n");
     }
 
-    private static void printStairsLetters() {
+    private static void printLettersStairs() {
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке\n");
-        char[] charArray = new char[26];
-        for (int i = 0; i < 26; i++) {
-            charArray[i] = (char) ('A' + i);
+        char[] alphabet = new char[26];
+        int len = alphabet.length;
+        for (int i = 0; i < len; i++) {
+            alphabet[i] = (char) ('A' + i);
         }
         int count = 1;
-        for (int i = charArray.length; i > 0; i--) {
+        for (int i = len; i > 0; i--) {
             for (int j = 0; j < count; j++) {
-                System.out.print(charArray[(charArray.length - 1) - j]);
+                System.out.print(alphabet[(len - 1) - j]);
             }
             count++;
             System.out.println();
         }
     }
 
-    private static void addIntElementsArray(int startRandomNum, int endRandomNum) {
+    private static void generationUniqueNumbers(int startRandomNum, int endRandomNum) {
         System.out.println("\n5. Генерация уникальных чисел\n");
-        int[] array = new int[30];
-        for (int i = 0; i < array.length; i++) {
-            int randomNum = (int) (Math.random() * (endRandomNum - startRandomNum)) + startRandomNum;
-            for (int j = 0; j < array.length; j++) {
-                if(randomNum == array[j]) {
+        int[] uniqueNums = new int[30];
+        int randomNum = 0;
+        for (int i = 0; i < uniqueNums.length; i++) {
+            for (int j = 0; j < uniqueNums.length; j++) {
+                if(randomNum == uniqueNums[j]) {
                     j = 0;
                     randomNum = (int) (Math.random() * (endRandomNum - startRandomNum)) + startRandomNum;
                 }
             }
-            array[i] = randomNum;
+            uniqueNums[i] = randomNum;
         }
-        bubbleSort(array);
-        for (int i = 0; i < array.length; i++) {
+        bubbleSort(uniqueNums);
+        for (int i = 0; i < uniqueNums.length; i++) {
             if (i % 10 == 0 && i != 0) {
                 System.out.println();
             }
-            System.out.print(array[i] + " ");
+            System.out.print(uniqueNums[i] + " ");
         }
     }
 
-    private static void bubbleSort(int[] array){
-        for (int i = 0; i < array.length - 1; i++) {
-            for(int j = 0; j < array.length - i - 1; j++) {
-                if(array[j + 1] < array[j]) {
-                    int swap = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = swap;
+    private static void bubbleSort(int[] uniqueNums) {
+        for (int i = 0; i < uniqueNums.length - 1; i++) {
+            for(int j = 0; j < uniqueNums.length - i - 1; j++) {
+                if(uniqueNums[j + 1] < uniqueNums[j]) {
+                    int swap = uniqueNums[j];
+                    uniqueNums[j] = uniqueNums[j + 1];
+                    uniqueNums[j + 1] = swap;
                 }
             }
         }
