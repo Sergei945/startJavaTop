@@ -6,23 +6,22 @@ public class ArrayTheme {
         printProductArrayElements();
         deleteArrayElements();
         printLettersStairs();
-        generateUniqueNumbers(60, 99);
+        generateUniqueNums(60, 99);
     }
 
     private static void reverseIntArray() {
         System.out.println("1. Реверс значений массива\n");
-        int[] intArray = {3, 5, 1, 2, 4, 5, 7};
+        int[] numbers = {3, 5, 1, 2, 4, 5, 7};
         System.out.print("До модификации: ");
-        print(intArray);
-        int moreMiddle  = intArray.length / 2;
-        for (int lessMiddle = moreMiddle; lessMiddle >= 0; lessMiddle--) {
-            int swap = intArray[moreMiddle];
-            intArray[moreMiddle] = intArray[lessMiddle];
-            intArray[lessMiddle] = swap;
-            moreMiddle++;
+        print(numbers);
+        int len  = numbers.length;
+        for (int i = 0; i < len / 2; i++) {
+            int swap = numbers[i];
+            numbers[i] = numbers[--len];
+            numbers[len] = swap;
         }
         System.out.print("После модификации: ");
-        print(intArray);
+        print(numbers);
     }
 
     private static void print(int[] intArray) {
@@ -39,35 +38,32 @@ public class ArrayTheme {
         for (int i = 0; i < len; i++) {
             multipliers[i] = i;
         }
-        StringBuilder str = new StringBuilder();
         int result = multipliers[1];
         for (int i = 1; i < len - 1; i++) {
-            str.append(i);
-            str.append((i != len - 2) ? " * " : "");
             result *= multipliers[i];
+            System.out.print(i + ((i != len - 2) ? " * " : " = " + result));
         }
-        System.out.println(str + " = " + result);
         System.out.println("\n" + multipliers[0] + " находится под индексом - 0\n" +
                 multipliers[len - 1] + " находится под индексом - " + len);
     }
 
     private static void deleteArrayElements() {
         System.out.println("\n3. Удаление элементов массива\n");
-        float[] realNumbers = new float[15];
-        int len = realNumbers.length;
+        float[] realNums = new float[15];
+        int len = realNums.length;
         for (int i = 0; i < len; i++) {
-            realNumbers[i] = (float) Math.random();
+            realNums[i] = (float) Math.random();
         }
-        print(realNumbers);
+        print(realNums);
         int count = 0;
-        float middleCellValue = realNumbers[len / 2];
+        float middleCellValue = realNums[len / 2];
         for (int i = 0; i < len; i++) {
-            if(realNumbers[i] > middleCellValue) {
-                realNumbers[i] = 0;
+            if(realNums[i] > middleCellValue) {
+                realNums[i] = 0;
                 count++;
             }
         }
-        print(realNumbers);
+        print(realNums);
         System.out.print("Всего обнулено ячеек - " + count + "\n");
     }
 
@@ -98,8 +94,7 @@ public class ArrayTheme {
         }
     }
 
-    private static void generateUniqueNumbers(int startRandomNum, int endRandomNum) {
-
+    private static void generateUniqueNums(int startRandomNum, int endRandomNum) {
         System.out.println("\n5. Генерация уникальных чисел\n");
         int[] uniqueNums = new int[30];
         int len = uniqueNums.length;
