@@ -6,7 +6,7 @@ public class ArrayTheme {
         printProductArrayElements();
         deleteArrayElements();
         printLettersStairs();
-        generationUniqueNumbers(60, 99);
+        generateUniqueNumbers(60, 99);
     }
 
     private static void reverseIntArray() {
@@ -14,12 +14,8 @@ public class ArrayTheme {
         int[] intArray = {3, 5, 1, 2, 4, 5, 7};
         System.out.print("До модификации: ");
         print(intArray);
-        int length = intArray.length / 2;
-        if(intArray.length % 2 == 0) {
-            length--;
-        }
         int moreMiddle  = intArray.length / 2;
-        for (int lessMiddle = length ; lessMiddle >= 0; lessMiddle--) {
+        for (int lessMiddle = moreMiddle; lessMiddle >= 0; lessMiddle--) {
             int swap = intArray[moreMiddle];
             intArray[moreMiddle] = intArray[lessMiddle];
             intArray[lessMiddle] = swap;
@@ -47,13 +43,12 @@ public class ArrayTheme {
         int result = multipliers[1];
         for (int i = 1; i < len - 1; i++) {
             str.append(i);
-            str.append((multipliers[i] != 0 && i != multipliers[len - 1] &&
-                    i != multipliers[len - 2]) ? " * " : "");
+            str.append((i != len - 2) ? " * " : "");
             result *= multipliers[i];
         }
         System.out.println(str + " = " + result);
         System.out.println("\n" + multipliers[0] + " находится под индексом - 0\n" +
-                multipliers[multipliers.length - 1] + " находится под индексом - " + multipliers.length);
+                multipliers[len - 1] + " находится под индексом - " + len);
     }
 
     private static void deleteArrayElements() {
@@ -73,7 +68,7 @@ public class ArrayTheme {
             }
         }
         print(realNumbers);
-        System.out.println("\nВсего обнулено ячеек - " + count);
+        System.out.print("Всего обнулено ячеек - " + count + "\n");
     }
 
     private static void print(float[] floatArray) {
@@ -103,12 +98,14 @@ public class ArrayTheme {
         }
     }
 
-    private static void generationUniqueNumbers(int startRandomNum, int endRandomNum) {
+    private static void generateUniqueNumbers(int startRandomNum, int endRandomNum) {
+
         System.out.println("\n5. Генерация уникальных чисел\n");
         int[] uniqueNums = new int[30];
+        int len = uniqueNums.length;
         int randomNum = 0;
-        for (int i = 0; i < uniqueNums.length; i++) {
-            for (int j = 0; j < uniqueNums.length; j++) {
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < len; j++) {
                 if(randomNum == uniqueNums[j]) {
                     j = 0;
                     randomNum = (int) (Math.random() * (endRandomNum - startRandomNum)) + startRandomNum;
@@ -117,7 +114,7 @@ public class ArrayTheme {
             uniqueNums[i] = randomNum;
         }
         bubbleSort(uniqueNums);
-        for (int i = 0; i < uniqueNums.length; i++) {
+        for (int i = 0; i < len; i++) {
             if (i % 10 == 0 && i != 0) {
                 System.out.println();
             }
