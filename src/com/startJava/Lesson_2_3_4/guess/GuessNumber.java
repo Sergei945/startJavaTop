@@ -1,5 +1,7 @@
 package com.startJava.Lesson_2_3_4.guess;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Scanner;
 
 class GuessNumber {
@@ -15,28 +17,43 @@ class GuessNumber {
     }
 
     public void play() {
-        System.out.println("Игра началась. Компьютер загадал число от 1 до 100. Отгадайте быстрее соперника");
+
+        System.out.println("Игра началась. Компьютер загадал число от 1 до 100. Отгадайте быстрее соперника\n" +
+                "У каждого игрока по 10 попыток");
         randomNum();
-        while(!isGuessed (player1) && !isGuessed(player2)) {}
+        System.out.println(secretNum);
+        while(!player1.isWin() && !player2.isWin()) {
+            isGuessed(player1);
+            isGuessed(player2);
+        }
+        player1.printNumsArray();
+        player2.printNumsArray();
+        player2.clear();
+        player1.clear();
     }
 
-    public boolean isGuessed(Player player) {
+    public void isGuessed(Player player) {
         if(player.getNum() == secretNum) {
-            System.out.println("Поздравляю " + player.getName() + 
-                    " вы выиграли загаданное число - " + secretNum);
-            return true;
+            System.out.println("Игрок " + player.getName() +
+                    " угадал число " + secretNum + " с " + (player.getIndexArray() + 1) + " попытки");
+            player.setWin(true);
         }
         do {
             System.out.print(player.getName() + " введите число от 1 до 100 ");
         } while(!player.setNum(console.nextInt()));
         if(player.getNum() > secretNum) {
             System.out.println("Число " + player.getNum() + " игрока " + player.getName() + 
-                    " больше того, что загадал компьютер");
+                    " больше того, что загадал компьютер\n" +
+                    "Количество попыток осталось - " + (9 - player.getIndexArray()));
         } else if(player.getNum() < secretNum) {
             System.out.println("Число " + player.getNum() + " игрока " + player.getName() +
-                    " меньше того, что загадал компьютер");
+                    " меньше того, что загадал компьютер\n" +
+                    "Количество попыток осталось - " + (9 - player.getIndexArray()));
         }
-        return false;
+        if (player.getIndexArray() == 9) {
+            System.out.println("Вы проиграли ваши количество попыток 0");
+            player.setLose(true);
+        }
     }
 
     private void randomNum() {

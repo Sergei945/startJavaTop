@@ -1,5 +1,6 @@
 package com.startJava.Lesson_2_3_4.calculator;
 
+import java.util.Scanner;
 class Calculator {
     private int a;
     private int b;
@@ -17,39 +18,32 @@ class Calculator {
         this.sign = sign;
     }
 
-    public boolean calculate() {
-        int result = 0;
-        switch(sign) {
-            case '+' :
-                result = a + b;
-                break;
-            case '-' :
-                result = a - b;
-                break;
-            case '*' :
-                result = a * b;
-                break;
-            case '^' :
-                result = 1; 
-                for (int i = 0; i < b; i++) {
-                    result *= a;
-                }
-                break;
-            case '%' :
-                result = a % b;
-                break;
-            case '/' :
-                if(b == 0) {
+    public double calculate(String option) {
+        String[] mathArray = option.trim().split(" ");
+        setA(Integer.parseInt(mathArray[0]));
+        setSign(mathArray[1].charAt(0));
+        setB(Integer.parseInt(mathArray[2]));
+        double result = 0;
+        switch (sign) {
+            case '+' -> result = a + b;
+            case '-' -> result = a - b;
+            case '*' -> result = Math.multiplyExact(a, b);
+            case '^' -> {
+                result = Math.pow(a, b);
+            }
+            case '%' -> result = a % b;
+            case '/' -> {
+                if (b == 0) {
                     System.out.println("Ошибка. На ноль делить нельзя");
                     break;
                 }
-                result = a / b;
-                break;
-            default :
+                result = (double) a / b;
+            }
+            default -> {
                 System.out.println("Такого оператора нет попробуйте ещё раз");
-                return false;
+            }
         }
-        System.out.println("Результат : " + a + " " + sign + " " + b + " = "  + result);
-        return true;
+            System.out.printf("Результат : " + a + " " + sign + " " + b + " = %8.3f\n", result);
+            return result;
     }
 }
