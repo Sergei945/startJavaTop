@@ -28,6 +28,7 @@ class Player {
         this.lose = false;
         this.win = false;
         this.indexArray = 0;
+        Arrays.fill(numsArray, 0);
     }
 
     public void printNumsArray() {
