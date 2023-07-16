@@ -9,15 +9,15 @@ class CalculatorTest {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
         Scanner console = new Scanner(System.in);
-        String option = "";
-        while(!option.equals("no")) {
-            System.out.print("Введите математическое выражение: ");
-            option = console.nextLine();
-            calculator.calculate(option);
-            if(!option.equals("yes") && !option.equals("no")) {
-                System.out.print("Желаете продолжить вычисления? (yes / no) ");
-                option = console.nextLine();
+        String option = "yes";
+        do {
+            if("yes".equals(option)) {
+                System.out.print("Введите математическое выражение: ");
+                String answer = console.nextLine();
+                calculator.calculate(answer);
             }
-        }
+            System.out.print("Желаете продолжить вычисления? (yes / no) ");
+            option = console.nextLine();
+        } while(!"no".equals(option));
     }
 }
