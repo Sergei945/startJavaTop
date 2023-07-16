@@ -20,7 +20,7 @@ class GuessNumber {
                 "У каждого игрока по 10 попыток");
         randomNum();
         System.out.println(secretNum);
-        while (!player1.isWin() || !player2.isWin()) {
+        while (!player1.isWin() && !player2.isWin()) {
              isGuessed(player1);
              isGuessed(player2);
         }
