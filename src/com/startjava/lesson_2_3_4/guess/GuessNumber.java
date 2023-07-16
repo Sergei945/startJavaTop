@@ -21,8 +21,8 @@ class GuessNumber {
         randomNum();
         System.out.println(secretNum);
         while (!player1.isWin() && !player2.isWin()) {
-             isGuessed(player1);
-             isGuessed(player2);
+            isGuessed(player1);
+            isGuessed(player2);
         }
         player1.printNumsArray();
         player2.printNumsArray();
