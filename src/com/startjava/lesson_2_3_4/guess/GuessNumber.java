@@ -20,9 +20,9 @@ class GuessNumber {
                 "У каждого игрока по 10 попыток");
         randomNum();
         System.out.println(secretNum);
-        while(!player1.isWin() && !player2.isWin()) {
-            isGuessed(player1);
-            isGuessed(player2);
+        while (!player1.isWin() || !player2.isWin()) {
+             isGuessed(player1);
+             isGuessed(player2);
         }
         player1.printNumsArray();
         player2.printNumsArray();
@@ -36,9 +36,8 @@ class GuessNumber {
                     " угадал число " + secretNum + " с " + (player.getIndexArray() + 1) + " попытки");
             player.setWin(true);
         }
-        do {
-            System.out.print(player.getName() + " введите число от 1 до 100 ");
-        } while(!player.setNum(console.nextInt()));
+        System.out.print(player.getName() + " введите число от 1 до 100 ");
+        player.setNum(console.nextInt());
         if(player.getNum() > secretNum) {
             System.out.println("Число " + player.getNum() + " игрока " + player.getName() + 
                     " больше того, что загадал компьютер\n" +
@@ -50,7 +49,6 @@ class GuessNumber {
         }
         if (player.getIndexArray() == 9) {
             System.out.println("Вы проиграли ваши количество попыток 0");
-            player.setLose(true);
         }
     }
 

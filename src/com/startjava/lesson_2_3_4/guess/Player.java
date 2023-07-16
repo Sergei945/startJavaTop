@@ -2,8 +2,8 @@ package com.startjava.lesson_2_3_4.guess;
 
 class Player {
 
-    private boolean win;
-    private boolean lose;
+    private boolean win = false;
+    private boolean lose = false;
     private String name;
     private int num;
     private int[] numsArray = new int[10];
