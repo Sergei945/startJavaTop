@@ -1,29 +1,21 @@
-package com.startJava.Lesson_2_3_4.calculator;
+package com.startjava.lesson_2_3_4.calculator;
 
-import java.util.Scanner;
 class Calculator {
     private int firstNum;
     private int secondNum;
     private char mathOperation;
-    private String answer = "yes";
 
-    public void setFirstNum(int firstNum) {
-        this.firstNum = firstNum;
-    }
+    public int getFirstNum() { return firstNum;}
 
-    public void setsecondNum(int secondNum) {
-        this.secondNum = secondNum;
-    }
+    public int getSecondNum() { return secondNum;}
 
-    public void setMathOperation(char mathOperation) {
-        this.mathOperation = mathOperation;
-    }
+    public char getMathOperation() { return mathOperation;}
 
     public double calculate(String option) {
-        String[] mathArray = option.trim().split(" ");
-        setFirstNum(Integer.parseInt(mathArray[0]));
-        setMathOperation(mathArray[1].charAt(0));
-        setsecondNum(Integer.parseInt(mathArray[2]));
+        String[] mathExpressionArray = option.trim().split(" ");
+        firstNum = (Integer.parseInt(mathExpressionArray[0]));
+        mathOperation = mathExpressionArray[1].charAt(0);
+        secondNum = Integer.parseInt(mathExpressionArray[2]);
         double result = 0;
         switch (mathOperation) {
             case '+' -> result = firstNum + secondNum;
@@ -44,12 +36,6 @@ class Calculator {
                 System.out.println("Такого оператора нет попробуйте ещё раз");
             }
         }
-        String round = "8.3";
-        if(result == 0.000f) {
-            round = "1.0";
-        }
-        System.out.printf("Результат : " + firstNum + " " + mathOperation + " " + secondNum +
-                " = %"+ round + "f\n", result);
         return result;
     }
 }

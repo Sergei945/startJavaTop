@@ -1,6 +1,4 @@
-package com.startJava.Lesson_2_3_4.guess;
-
-import org.w3c.dom.ls.LSOutput;
+package com.startjava.Lesson_2_3_4.guess;
 
 import java.util.Scanner;
 

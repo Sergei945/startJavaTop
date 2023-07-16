@@ -1,6 +1,4 @@
-package com.startJava.Lesson_2_3_4.guess;
-
-import java.util.ArrayList;
+package com.startjava.Lesson_2_3_4.guess;
 
 class Player {
 

@@ -1,4 +1,4 @@
-package com.startJava.Lesson_1.base;
+package com.startjava.Lesson_1.base;
 
 class MyFirstApp {
 
