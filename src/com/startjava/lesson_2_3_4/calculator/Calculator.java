@@ -34,7 +34,6 @@ class Calculator {
                 result = (double) a / b;
             }
             default -> System.out.println("Такого оператора нет попробуйте ещё раз");
-
         }
         return result;
     }
