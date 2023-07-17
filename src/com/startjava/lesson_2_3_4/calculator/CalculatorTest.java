@@ -12,6 +12,9 @@ class CalculatorTest {
                 System.out.print("Введите математическое выражение: ");
                 String mathExpression = console.nextLine();
                 double result = Calculator.calculate(mathExpression);
+                if(result == Double.MIN_VALUE) {
+                    continue;
+                }
                 String round = (result % 1 == 0 || result == 0) ? "1.0" : "5.3";
                 System.out.printf("Результат : " + mathExpression + " = %"+ round + "f\n", result);
             }

@@ -33,7 +33,11 @@ class Calculator {
                 }
                 result = (double) a / b;
             }
-            default -> System.out.println("Такого оператора нет попробуйте ещё раз");
+            default ->  {
+                System.out.println("Такого оператора нет попробуйте ещё раз");
+                return Double.MIN_VALUE;
+            }
+
         }
         return result;
     }
