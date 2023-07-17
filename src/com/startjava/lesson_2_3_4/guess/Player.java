@@ -5,7 +5,6 @@ import java.util.Arrays;
 class Player {
 
     private boolean win = false;
-    private boolean lose = false;
     private String name;
     private int num;
     private int[] numsArray = new int[10];
@@ -14,29 +13,21 @@ class Player {
 
     public boolean isWin() { return win;}
 
-    public boolean isLose() { return lose;}
-
     public void setWin(boolean win) {
         this.win = win;
     }
 
-    public void setLose(boolean lose) {
-        this.lose = lose;
-    }
-
     public void clear() {
-        this.lose = false;
         this.win = false;
         this.indexArray = 0;
         Arrays.fill(numsArray, 0);
     }
 
     public void printNumsArray() {
-        System.out.print("Попытки игрока " + getName() + " ");
-        for (int i : numsArray) {
-            if(i != 0) {
-                System.out.print(i + " ");
-            }
+        System.out.print("Попытки игрока " + name + " ");
+        int[] newArray = Arrays.copyOf(numsArray, indexArray);
+        for (int i : newArray) {
+            System.out.print(i + " ");
         }
         System.out.println();
     }
