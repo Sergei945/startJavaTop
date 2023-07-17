@@ -25,7 +25,7 @@ class Player {
 
     public void printNumsArray() {
         System.out.print("Попытки игрока " + name + " ");
-        int[] newArray = Arrays.copyOf(numsArray, indexArray);
+        int[] newArray = Arrays.copyOf(numsArray,indexArray);
         for (int i : newArray) {
             System.out.print(i + " ");
         }
@@ -49,8 +49,8 @@ class Player {
     public boolean setNum(int num) {
         if((num >= 1 && num <= 100)) {
             this.num = num;
-            indexArray++;
             numsArray[indexArray] = num;
+            indexArray++;
             return true;
          }
         System.out.println("Ошибка введено число меньше 1 или больше 100 попробуйте снова");
