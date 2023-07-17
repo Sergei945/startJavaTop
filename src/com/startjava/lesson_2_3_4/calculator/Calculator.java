@@ -1,40 +1,31 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 class Calculator {
-    private int firstNum;
-    private int secondNum;
+    private int a;
+    private int b;
     private char mathOperation;
 
-    public int getFirstNum() { return firstNum;}
-
-    public int getSecondNum() { return secondNum;}
-
-    public char getMathOperation() { return mathOperation;}
-
     public double calculate(String option) {
-        String[] mathExpressionArray = option.trim().split(" ");
-        firstNum = (Integer.parseInt(mathExpressionArray[0]));
-        mathOperation = mathExpressionArray[1].charAt(0);
-        secondNum = Integer.parseInt(mathExpressionArray[2]);
+        String[] elements = option.trim().split(" ");
+        a = Integer.parseInt(elements[0]);
+        mathOperation = elements[1].charAt(0);
+        b = Integer.parseInt(elements[2]);
         double result = 0;
         switch (mathOperation) {
-            case '+' -> result = firstNum + secondNum;
-            case '-' -> result = firstNum - secondNum;
-            case '*' -> result = Math.multiplyExact(firstNum, secondNum);
-            case '^' -> {
-                result = Math.pow(firstNum, secondNum);
-            }
-            case '%' -> result = firstNum % secondNum;
+            case '+' -> result = a + b;
+            case '-' -> result = a - b;
+            case '*' -> result = Math.multiplyExact(a, b);
+            case '^' -> result = Math.pow(a, b);
+            case '%' -> result = a % b;
             case '/' -> {
-                if (secondNum == 0) {
+                if (b == 0) {
                     System.out.println("Ошибка. На ноль делить нельзя");
                     break;
                 }
-                result = (double) firstNum / secondNum;
+                result = (double) a / b;
             }
-            default -> {
-                System.out.println("Такого оператора нет попробуйте ещё раз");
-            }
+            default -> System.out.println("Такого оператора нет попробуйте ещё раз");
+
         }
         return result;
     }

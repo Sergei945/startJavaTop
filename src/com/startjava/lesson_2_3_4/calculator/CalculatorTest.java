@@ -13,13 +13,12 @@ class CalculatorTest {
                 System.out.print("Введите математическое выражение: ");
                 String mathExpression = console.nextLine();
                 double result = calculator.calculate(mathExpression);
-                String round = "8.3";
-                if(result == 0.000f) {
+                String round = "5.3";
+                if(result % 1 == 0 || result == 0) {
+                    System.out.println("Я пытался сменить формат");
                     round = "1.0";
                 }
-                System.out.printf("Результат : " + calculator.getFirstNum() + " " +
-                        calculator.getMathOperation() + " " + calculator.getSecondNum() +
-                        " = %"+ round + "f\n", result);
+                System.out.printf("Результат : " + mathExpression + " = %"+ round + "f\n", result);
             }
             System.out.print("Желаете продолжить вычисления? (yes / no) ");
             choice = console.nextLine();
