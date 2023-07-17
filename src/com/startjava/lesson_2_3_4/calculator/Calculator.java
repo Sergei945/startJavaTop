@@ -1,15 +1,24 @@
 package com.startjava.lesson_2_3_4.calculator;
 
-class Calculator {
-    private int a;
-    private int b;
-    private char mathOperation;
+import java.util.Scanner;
 
-    public double calculate(String option) {
-        String[] elements = option.trim().split(" ");
-        a = Integer.parseInt(elements[0]);
-        mathOperation = elements[1].charAt(0);
-        b = Integer.parseInt(elements[2]);
+class Calculator {
+    private static int a;
+    private static int b;
+    private static char mathOperation;
+
+    public static double calculate(String mathExpression) {
+        Scanner console = new Scanner(System.in);
+        String[] elements = mathExpression.trim().split(" ");
+        try {
+            a = Integer.parseInt(elements[0]);
+            mathOperation = elements[1].charAt(0);
+            b = Integer.parseInt(elements[2]);
+        } catch (RuntimeException  e) {
+            System.out.print("Введите корректные значения: ");
+            mathExpression = console.nextLine();
+            calculate(mathExpression);
+        }
         double result = 0;
         switch (mathOperation) {
             case '+' -> result = a + b;
