@@ -28,7 +28,7 @@ class GuessNumber {
     }
 
     public boolean isGuessed(Player player) {
-        if(player.getNum() == secretNum) {18
+        if(player.getNum() == secretNum) {
             System.out.println("Игрок " + player.getName() +
                     " угадал число " + secretNum + " с " + (player.getIndexArray() + 1) + " попытки");
             return false;
