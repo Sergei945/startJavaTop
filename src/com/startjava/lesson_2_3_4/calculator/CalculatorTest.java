@@ -9,17 +9,27 @@ class CalculatorTest {
         String choice = "yes";
         do {
             if("yes".equals(choice)) {
+                double result;
+                String mathExpression;
                 System.out.print("Введите математическое выражение: ");
-                String mathExpression = console.nextLine();
-                double result = Calculator.calculate(mathExpression);
-                if(result == Double.MIN_VALUE) {
+                try {
+                    mathExpression = console.nextLine();
+                    result = Calculator.calculate(mathExpression);
+                    if (result != Double.MIN_VALUE && result > 0) {
+                        print(result, mathExpression);
+                    }
+                } catch (RuntimeException e) {
+                    System.out.println("Введите корректные значения: ");
                     continue;
                 }
-                String round = (result % 1 == 0 || result == 0) ? "1.0" : "5.3";
-                System.out.printf("Результат : " + mathExpression + " = %"+ round + "f\n", result);
+
             }
             System.out.print("Желаете продолжить вычисления? (yes / no) ");
             choice = console.nextLine();
         } while(!"no".equals(choice));
+    }
+    public static void print(double result, String mathExpression) {
+        String round = (result % 1 == 0) ? "1.0" : "5.3";
+        System.out.printf("Результат : " + mathExpression + " = %" + round + "f\n", result);
     }
 }
