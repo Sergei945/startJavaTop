@@ -9,12 +9,11 @@ class CalculatorTest {
         String choice = "yes";
         do {
             if("yes".equals(choice)) {
-                double result;
-                String mathExpression;
+
                 System.out.print("Введите математическое выражение: ");
                 try {
-                    mathExpression = console.nextLine();
-                    result = Calculator.calculate(mathExpression);
+                    String mathExpression = console.nextLine();
+                    double result = Calculator.calculate(mathExpression);
                     if (result != Double.MIN_VALUE && result > 0) {
                         print(result, mathExpression);
                     }
@@ -28,8 +27,9 @@ class CalculatorTest {
             choice = console.nextLine();
         } while(!"no".equals(choice));
     }
+
     public static void print(double result, String mathExpression) {
-        String round = (result % 1 == 0) ? "1.0" : "5.3";
+        String round = (result % 1 == 0) ? ".0" : ".3";
         System.out.printf("Результат : " + mathExpression + " = %" + round + "f\n", result);
     }
 }
