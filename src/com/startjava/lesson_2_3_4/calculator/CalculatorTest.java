@@ -9,7 +9,6 @@ class CalculatorTest {
         String choice = "yes";
         do {
             if("yes".equals(choice)) {
-
                 System.out.print("Введите математическое выражение: ");
                 try {
                     String mathExpression = console.nextLine();
@@ -21,7 +20,6 @@ class CalculatorTest {
                     System.out.println("Введите корректные значения: ");
                     continue;
                 }
-
             }
             System.out.print("Желаете продолжить вычисления? (yes / no) ");
             choice = console.nextLine();
