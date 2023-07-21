@@ -33,7 +33,7 @@ class GuessNumber {
             return false;
         }
        int playerNum;
-        do{
+        do {
             System.out.print(player.getName() + " введите число от 1 до 100 ");
             playerNum = console.nextInt();
             if(playerNum < 1 || playerNum > 100) {

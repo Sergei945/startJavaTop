@@ -12,16 +12,16 @@ class Player {
 
     public String getName() { return name; }
 
-    public int[] copyNums() { return Arrays.copyOf(nums, attempt); }
+    public int getAttempt() { return attempt; }
 
     public void incrementAttempt() { attempt++; }
 
-    public int getAttempt() { return attempt; }
+    public void addNum(int num) { nums[attempt] = num; }
+
+    public int[] copyNums() { return Arrays.copyOf(nums, attempt); }
 
     public void clear() {
         Arrays.fill(nums, 0, attempt, 0);
         attempt = 0;
     }
-
-    public void addNum(int num) { nums[attempt] = num; }
 }
