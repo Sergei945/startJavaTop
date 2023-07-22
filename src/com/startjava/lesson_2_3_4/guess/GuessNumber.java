@@ -25,7 +25,7 @@ class GuessNumber {
 
     private void randomNum() { secretNum = (int) (Math.random() * 100) + 1; }
 
-    public boolean isGuessed(Player player) {
+    private boolean isGuessed(Player player) {
         int playerNum = entryNum(player);
         if (checkWin(playerNum, player)) {
             return true;
@@ -37,7 +37,7 @@ class GuessNumber {
         return false;
     }
 
-    public int entryNum(Player player) {
+    private int entryNum(Player player) {
         int playerNum;
         Scanner console = new Scanner(System.in, "cp866");
         do {
@@ -51,7 +51,7 @@ class GuessNumber {
         return playerNum;
     }
 
-    public boolean checkWin(int playerNum, Player player) {
+    private boolean checkWin(int playerNum, Player player) {
         if (playerNum == secretNum) {
             System.out.println("Игрок " + player.getName() +
                     " угадал число " + secretNum + " с " + (player.getAttempt()) + " попытки");
@@ -63,11 +63,11 @@ class GuessNumber {
         return false;
     }
 
-    public String checkNum(int num) {
+    private String checkNum(int num) {
         return  (num > secretNum) ? " больше" : " меньше";
     }
 
-    public void printNums(Player player) {
+    private void printNums(Player player) {
         System.out.print("Попытки игрока " + player.getName() + " ");
         for (int i : player.copyNums()) {
             System.out.print(i + " ");
