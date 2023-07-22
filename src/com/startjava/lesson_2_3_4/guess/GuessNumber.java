@@ -16,7 +16,7 @@ class GuessNumber {
         System.out.println("Игра началась. Компьютер загадал число от 1 до 100. Отгадайте быстрее соперника\n" +
                 "У каждого игрока по 10 попыток");
         randomNum();
-        while (isGuessed(player1) && isGuessed(player2)) { }
+        while (!isGuessed(player1) && !isGuessed(player2)) { }
         printNums(player1);
         printNums(player2);
         player2.clear();
@@ -26,8 +26,20 @@ class GuessNumber {
     private void randomNum() { secretNum = (int) (Math.random() * 100) + 1; }
 
     public boolean isGuessed(Player player) {
-        Scanner console = new Scanner(System.in, "cp866");
+        int playerNum = entryNum(player);
+        if (checkWin(playerNum, player)) {
+            return true;
+        }
+        if (player.getAttempt() >= 10) {
+            System.out.println("Вы проиграли ваши количество попыток 0");
+            return true;
+        }
+        return false;
+    }
+
+    public int entryNum(Player player) {
         int playerNum;
+        Scanner console = new Scanner(System.in, "cp866");
         do {
             System.out.print(player.getName() + " введите число от 1 до 100 ");
             playerNum = console.nextInt();
@@ -36,19 +48,19 @@ class GuessNumber {
                 System.out.println("Ошибка введено число меньше 1 или больше 100 попробуйте снова");
             }
         } while (playerNum < 1 || playerNum > 100);
+        return playerNum;
+    }
+
+    public boolean checkWin(int playerNum, Player player) {
         if (playerNum == secretNum) {
             System.out.println("Игрок " + player.getName() +
                     " угадал число " + secretNum + " с " + (player.getAttempt()) + " попытки");
-            return false;
+            return true;
         }
         System.out.println("Число " + playerNum + " игрока " + player.getName() +
                 checkNum(playerNum) + " того, что загадал компьютер\n" +
                 "Количество попыток осталось - " + (10 - player.getAttempt()));
-        if (player.getAttempt() >= 10) {
-            System.out.println("Вы проиграли ваши количество попыток 0");
-            return false;
-        }
-        return true;
+        return false;
     }
 
     public String checkNum(int num) {
