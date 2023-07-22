@@ -14,9 +14,12 @@ class Player {
 
     public int getAttempt() { return attempt; }
 
-    public void incrementAttempt() { attempt++; }
+//    public void incrementAttempt() { attempt++; }
 
-    public void addNum(int num) { nums[attempt] = num; }
+    public void addNum(int num) {
+        nums[attempt] = num;
+        attempt++;
+    }
 
     public int[] copyNums() { return Arrays.copyOf(nums, attempt); }
 
