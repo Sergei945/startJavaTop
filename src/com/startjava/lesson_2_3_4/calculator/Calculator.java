@@ -1,7 +1,5 @@
 package com.startjava.lesson_2_3_4.calculator;
 
-import java.util.Scanner;
-
 class Calculator {
 
     public static double calculate(String mathExpression) {
