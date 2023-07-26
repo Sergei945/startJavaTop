@@ -1,5 +1,6 @@
 package com.startjava.graduation.bookshelf;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Bookshelf {
@@ -51,19 +52,18 @@ public class Bookshelf {
             }
         }
 
-        String a = "2";;
-        while (!"".equals(a)){
-            System.out.println("Для продолжения нажмите Enter");
-            a = console.nextLine();
-        }
+//        String a = "";
+//        while (a != null){
+//            System.out.print("Для продолжения нажмите Enter");
+//            a = console.nextLine();
+//            System.out.println(a);
+//        }
         printAllBooks();
         return false;
     }
 
     public void clear() {
-        for (int i = 0; i < books.length; i++) {
-            books[i] = new Book();
-        }
+        Arrays.fill(books, null);
     }
 
     public void addBook(String author, String name, int year) {
@@ -75,7 +75,7 @@ public class Bookshelf {
     }
 
     public void findBook(String name) {
-        for (int i = 0; i < books.length; i++) {
+        for (int i = 0; i < quantityBooks; i++) {
             if(books[i].getName().equals(name)) {
                 System.out.println("Книга которую вы искали.");
                 System.out.println(books[i].toString());
@@ -85,24 +85,22 @@ public class Bookshelf {
 
     public void removeBook(String name) {
         int indexRemoveBook = 0;
-        for (int i = 0; i < books.length; i++) {
+        for (int i = 0; i < quantityBooks; i++) {
             if(name.equals(books[i].getName())) {
                 indexRemoveBook = i;
             }
         }
-        for (int i = indexRemoveBook + 1; i < books.length; i++) {
+        for (int i = indexRemoveBook + 1; i < quantityBooks; i++) {
             books[i - 1] = books[i];
         }
         quantityBooks--;
     }
 
     public void printAllBooks() {
-        System.out.println("В шкафу книг -" + quantityBooks +  " свободно полок - " + (books.length  - quantityBooks));
-        for (int i = 0; i < books.length; i++) {
-            if(books[i] != null) {
+        System.out.println("В шкафу книг - " + quantityBooks +  " свободно полок - " + (books.length  - quantityBooks));
+        for (int i = 0; i < quantityBooks; i++) {
                 System.out.println(books[i]);
                 System.out.print('|' + "-".repeat(maxLength) + '|');
-            }
         }
     }
 }
