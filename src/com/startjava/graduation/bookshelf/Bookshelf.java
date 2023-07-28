@@ -26,29 +26,25 @@ public class Bookshelf {
         return maxLength;
     }
 
-    public void addBook(Book book) {
+    public void add(Book book) {
         books[quantityBooks] = book;
         if(maxLength < books[quantityBooks].getLengthInfo()) {
             maxLength = books[quantityBooks].getLengthInfo();
         }
-        System.out.println();
-        System.out.println("Книга " + books[quantityBooks] + " добавлена в шкаф");
+        System.out.println("\nКнига " + books[quantityBooks] + " добавлена в шкаф");
         quantityBooks++;
     }
 
-    public void findBook(String title) {
-        System.out.print("Введите название книги которую требуется найти: ");
+    public Book find(String title) {
         for (int i = 0; i < quantityBooks; i++) {
             if(books[i].getTitle().equals(title)) {
-                System.out.println("Книга которую вы искали - " + books[i].toString());
-                return;
+                return books[i];
             }
-            System.out.println("На полке нет такой книги");
         }
-
+        return null;
     }
 
-    public void removeBook(String title) {
+    public void remove(String title) {
         for (int i = 0; i < quantityBooks; i++) {
             if(books[i].getTitle().equals(title)) {
                 int length = books[i].getLengthInfo();

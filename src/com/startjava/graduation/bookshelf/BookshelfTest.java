@@ -29,8 +29,10 @@ public class BookshelfTest {
     private static boolean isInputMenu() {
         printMenu();
         System.out.print("Выберите цифрой требуемое действие. ");
-        switch (console.nextInt()) {
-            case 1 -> bookshelf.addBook(inputAdd());
+        int value = console.nextInt();
+        console.nextLine();
+        switch (value) {
+            case 1 -> bookshelf.add(inputAdd());
             case 2 -> inputFind();
             case 3 -> inputRemove();
             case 4 -> bookshelf.clear();
@@ -43,29 +45,30 @@ public class BookshelfTest {
     }
 
     private static Book inputAdd() {
-        console.nextLine();
         System.out.print("Введите автора книги: ");
         String author = console.nextLine();
         System.out.print("Введите название книги: ");
-        String name = console.nextLine();
+        String title = inputTitle();
         System.out.print("Введите год издания книги: ");
         int publicationYear = console.nextInt();
-        return new Book(author, name, publicationYear);
+        return new Book(author, title, publicationYear);
     }
 
     private static void inputFind() {
-        System.out.print("Введите название книги которую требуется найти: ");
-        bookshelf.findBook(console.nextLine());
+        Book book = bookshelf.find(inputTitle());
+        System.out.println(book != null ? book : "Книга не найдена");
     }
 
     private static void inputRemove() {
-        System.out.print("Введите название книги которую требуется удалить: ");
-        console.nextLine();
-        bookshelf.removeBook(console.nextLine());
+        bookshelf.remove(inputTitle());
+    }
+
+    private static String inputTitle() {
+        System.out.print("Введите название книги: ");
+        return console.nextLine();
     }
 
     private static void pressEnter() {
-        console.nextLine();
         System.out.print("\nДля продолжения работы нажмите клавишу <Enter>");
         String key;
         do {
