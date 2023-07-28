@@ -23,14 +23,15 @@ public class Bookshelf {
         quantityBooks++;
     }
 
-    public boolean findBook(String title) {
+    public void findBook(String title) {
         for (int i = 0; i < quantityBooks; i++) {
             if(books[i].getTitle().equals(title)) {
                 System.out.println("Книга которую вы искали - " + books[i].toString());
-                return true;
+                return;
             }
+            System.out.println("На полке нет такой книги");
         }
-        return false;
+
     }
 
     public void removeBook(String title) {

@@ -33,9 +33,7 @@ public class BookshelfTest {
                 }
                 case '2' -> {
                     System.out.print("Введите название книги которую требуется найти: ");
-                    if(!bookshelf.findBook(console.nextLine())) {
-
-                    }
+                    bookshelf.findBook(console.nextLine());
                 }
                 case '3' -> {
                     System.out.print("Введите название книги которую требуется удалить: ");
