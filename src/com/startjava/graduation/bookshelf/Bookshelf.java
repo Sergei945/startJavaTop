@@ -4,17 +4,30 @@ import java.util.Arrays;
 
 public class Bookshelf {
     private int quantityBooks;
-    private Book[] books = new Book[10];
+    private int maxBook = 10;
+
+    private Book[] books = new Book[maxBook];
+
     private int maxLength;
 
-    public void clear() {
-        Arrays.fill(books,0, quantityBooks, null);
-        quantityBooks = 0;
-        System.out.println("Шкаф снова чист");
+    public int getQuantityBooks() {
+        return quantityBooks;
     }
 
-    public void addBook(String author, String title, int year) {
-        books[quantityBooks] = new Book(author, title, year);
+    public int getMaxBook() {
+        return maxBook;
+    }
+
+    public Book[] getBooks() {
+        return books;
+    }
+
+    public int getMaxLength() {
+        return maxLength;
+    }
+
+    public void addBook(Book book) {
+        books[quantityBooks] = book;
         if(maxLength < books[quantityBooks].getLengthInfo()) {
             maxLength = books[quantityBooks].getLengthInfo();
         }
@@ -24,6 +37,7 @@ public class Bookshelf {
     }
 
     public void findBook(String title) {
+        System.out.print("Введите название книги которую требуется найти: ");
         for (int i = 0; i < quantityBooks; i++) {
             if(books[i].getTitle().equals(title)) {
                 System.out.println("Книга которую вы искали - " + books[i].toString());
@@ -57,13 +71,17 @@ public class Bookshelf {
         System.out.println("На полке нет такой книги");
     }
 
-    public void printAllBooks() {
-        System.out.println("В шкафу книг - " + quantityBooks +  " свободно полок - " + (books.length  - quantityBooks));
-        for (int i = 0; i < quantityBooks; i++) {
-                System.out.println("|" + books[i] + "|");
-                System.out.println("|" + "-".repeat(maxLength) + "|");
-        }
+    public void clear() {
+        Arrays.fill(books,0, quantityBooks, null);
+        quantityBooks = 0;
+        System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу");
     }
+
+
+
+
+
+
 }
 
 
