@@ -1,25 +1,20 @@
 package com.startjava.graduation.bookshelf;
 
-import java.util.Objects;
-
 public class Book {
     private String author;
+    private String title;
+    private int publicationYear;
+    private int lengthInfo;
 
-    private String name = "";
-    private int year;
-    private int lengthInfo = toString().length();
-
-    public Book() {
-
-    }
-    public Book(String author, String name, int year) {
+    public Book(String author, String name, int publicationYear) {
         this.author = author;
-        this.name = name;
-        this.year = year;
+        this.title = name;
+        this.publicationYear = publicationYear;
+        lengthInfo = toString().length();
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
     public int getLengthInfo() {
@@ -28,21 +23,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return """
-                |%s, %s, %s|
-                """.formatted(author, name, year);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Book book = (Book) o;
-        return year == book.year && Objects.equals(author, book.author) && Objects.equals(name, book.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(author, name, year);
+        return author + "," + title + "," + publicationYear;
     }
 }
+
