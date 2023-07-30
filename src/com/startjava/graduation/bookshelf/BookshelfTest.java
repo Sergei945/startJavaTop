@@ -80,7 +80,7 @@ public class BookshelfTest {
 
     public static void printBookShelf() {
         System.out.println("В шкафу книг - " + bookshelf.getQuantityBooks() +  " свободно полок - " +
-                (bookshelf.getCAPACITY()  - bookshelf.getQuantityBooks()));
+                (bookshelf.CAPACITY  - bookshelf.getQuantityBooks()));
         int maxLength = bookshelf.getMaxLength();
         for (Book book: bookshelf.getBooks()) {
             System.out.println("|" + book + " ".repeat(maxLength - book.getLengthInfo()) + "|");

@@ -4,18 +4,16 @@ import java.util.Arrays;
 
 public class Bookshelf {
     private int quantityBooks;
-    final int CAPACITY = 10;
+    final static int CAPACITY = 10;
     private int maxLength;
     private Book[] books = new Book[CAPACITY];
 
 
     public int getQuantityBooks() { return quantityBooks; }
 
-    public int getCAPACITY() { return CAPACITY; }
+    public int getMaxLength() { return maxLength; }
 
     public Book[] getBooks() { return Arrays.copyOf(books, quantityBooks); }
-
-    public int getMaxLength() { return maxLength; }
 
     public void add(Book book) {
         books[quantityBooks] = book;
