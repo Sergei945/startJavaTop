@@ -2,34 +2,27 @@ package com.startjava.graduation.bookshelf;
 
 import java.util.Arrays;
 
-//import static java.util.Arrays.*;
-
 public class Bookshelf {
     private int quantityBooks;
-    private int CAPACITY = 10;
-    private Book[] books = new Book[CAPACITY];
+    final int CAPACITY = 10;
     private int maxLength;
+    private Book[] books = new Book[CAPACITY];
 
-    public int getQuantityBooks() {
-        return quantityBooks;
-    }
 
-    public int getCAPACITY() {
-        return CAPACITY;
-    }
+    public int getQuantityBooks() { return quantityBooks; }
+
+    public int getCAPACITY() { return CAPACITY; }
 
     public Book[] getBooks() { return Arrays.copyOf(books, quantityBooks); }
 
-    public int getMaxLength() {
-        return maxLength;
-    }
+    public int getMaxLength() { return maxLength; }
 
     public void add(Book book) {
         books[quantityBooks] = book;
-        if(maxLength < books[quantityBooks].getLengthInfo()) {
-            maxLength = books[quantityBooks].getLengthInfo();
+        if(maxLength < book.getLengthInfo()) {
+            maxLength = book.getLengthInfo();
         }
-        System.out.println("\nКнига " + books[quantityBooks] + " добавлена в шкаф");
+        System.out.println("\nКнига " + book + " добавлена в шкаф");
         quantityBooks++;
     }
 
@@ -53,7 +46,7 @@ public class Bookshelf {
                 if(length == maxLength) {
                     maxLength = 0;
                     for (int j = 0; j < quantityBooks; j++) {
-                        if (books[j].getLengthInfo() > maxLength) {
+                        if (maxLength < books[j].getLengthInfo()) {
                             maxLength = books[j].getLengthInfo();
                         }
                     }
@@ -69,5 +62,3 @@ public class Bookshelf {
         quantityBooks = 0;
     }
 }
-
-
