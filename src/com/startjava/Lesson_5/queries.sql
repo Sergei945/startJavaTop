@@ -15,7 +15,7 @@ SELECT *
 \echo Вывод роботов кроме: Mark-1 и Mark-4
 SELECT * 
   FROM jaegers
- WHERE mark != 1 AND mark != 4;
+ WHERE mark NOT IN(1, 4);
 
 \echo Вывод таблицы по убиыванию по mark
 SELECT * 
